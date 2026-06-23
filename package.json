@@ -1,0 +1,10 @@
+{
+  "name": "nbn-ai-workshop",
+  "version": "1.0.0",
+  "description": "nbn AI Workshop prompt library",
+  "scripts": {
+    "start": "npx serve public -p 3000",
+    "dev": "npx serve public -p 3000 --no-clipboard"
+  },
+  "license": "UNLICENSED"
+}

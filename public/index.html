@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RMIT AI Workshop</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/RMIT_University_Logo.svg" alt="RMIT University" class="rmit-logo">
+  <div class="header-divider"></div>
+  <div>
+    <div class="header-title">AI Workshop</div>
+    <div class="header-sub">Prompt Library · June 2026</div>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Your AI Workshop Prompts</h1>
+  <p>Pick an activity below. Copy any prompt and paste it directly into Claude. Each prompt is ready to use — just follow the chain or fill in your details.</p>
+</div>
+
+<div class="tabs-wrapper">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('fault', this)">
+      Digital Fault Reporting
+      <span class="tab-badge">9 prompts</span>
+    </button>
+    <button class="tab-btn" onclick="switchTab('fun', this)">
+      Fun Activities
+      <span class="tab-badge">4 prompts</span>
+    </button>
+    <button class="tab-btn" onclick="switchTab('sdlc', this)">
+      Startup SDLC
+      <span class="tab-badge">5 steps</span>
+    </button>
+  </div>
+</div>
+
+<main>
+
+<!-- ===================== ACTIVITY 1 ===================== -->
+<div class="activity-panel active" id="panel-fault">
+
+  <div class="activity-intro">
+    <h2>Digital Fault Reporting — Full Product Journey</h2>
+    <p>Follow 9 prompts to build an entire product from scratch — from a GM's email all the way to a developer-ready design brief. Each prompt builds on the output of the one before it.</p>
+    <div class="how-to">
+      <strong>How to use:</strong> Start with Prompt 1. Copy it, paste it into Claude, and read the output. For Prompts 2–9, paste the prompt into the <em>same conversation</em> — Claude will automatically use all prior context. Expand <strong>"See example output"</strong> under any prompt to see what Claude produced.
+    </div>
+  </div>
+
+  <!-- ——— PROMPT 1 ——— -->
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <div class="prompt-meta">
+        <div class="step-badge">1</div>
+        <div class="prompt-title">Internal Email</div>
+        <span class="role-pill role-gm">GM Customer Experience</span>
+      </div>
+      <div class="header-actions">
+        <button class="copy-btn" onclick="copyPrompt(this, 'p1')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy prompt
+        </button>
+      </div>
+    </div>
+    <div class="prompt-body">
+      <pre class="prompt-text" id="p1">You are the GM of Customer Experience at NBN Co. You have just been briefed by your complaints office: customers have no way to report an internet fault online. They must call the contact centre, wait on hold, and get no updates once a fault is lodged.
+
+Draft a short internal email to the BA team asking them to build a business case for a digital fault reporting tool. Keep it under 150 words. Include:
+- The customer problem
+- The outcome you want (a business case, not a solution)
+- Three constraints: must work on mobile, low friction, no account creation required
+- A 5 business day deadline
+
+Sign off as David Chen, GM Customer Experience.</pre>
+    </div>
+    <button class="accordion-toggle" onclick="toggleAccordion(this)">
+      <span class="toggle-left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        See example output
+        <span class="example-badge">Example</span>
+      </span>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-content">
+      <div class="out-label">Example output — Internal Email</div>
+      <div class="out-email">
+        <div class="out-email-header">
+          <div><strong>To:</strong> BA Team</div>
+          <div><strong>From:</strong> David Chen, GM Customer Experience</div>
+          <div><strong>Subject:</strong> Business case needed: digital fault reporting</div>
+        </div>
+        <div class="out-email-body">Hi team,
+
+I need your help building a business case for a digital fault reporting tool.
+
+Right now, customers with an nbn fault have one option: call us. They wait an average of 23 minutes to report a problem, then receive no updates unless they call back. 84% are still picking up the phone because there's simply no alternative.
+
+I'd like a business case — not a solution — that makes the case for investing in an online fault reporting channel. Please scope it around three non-negotiables:
+
+  • Mobile-first — 71% of our customers report faults from a phone
+  • Low friction — the experience must be fast and simple under fault conditions
+  • No account creation required
+
+Can you have a draft to me within 5 business days? Happy to discuss before you get started.
+
+Thanks,
+David Chen
+GM Customer Experience, nbn Co</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-connector">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    continue in the same conversation
+  </div>
+
+  <!-- ——— PROMPT 2 ——— -->
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <div class="prompt-meta">
+        <div class="step-badge">2</div>
+        <div class="prompt-title">Business Case</div>
+        <span class="role-pill role-ba">Business Analyst</span>
+      </div>
+      <div class="header-actions">
+        <button class="copy-btn" onclick="copyPrompt(this, 'p2')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy prompt
+        </button>
+      </div>
+    </div>
+    <div class="prompt-body">
+      <div class="chain-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Use in the same conversation — Claude will use the email from Prompt 1 automatically.
+      </div>
+      <pre class="prompt-text" id="p2">You are a Business Analyst. You have received the email above from your GM. Draft a one-page business case for the product or initiative described in that email. Structure it as:
+- Problem statement
+- Proposed solution
+- 3 key benefits
+- What's in scope and what's not
+- Effort estimate (S / M / L)
+- Primary risk</pre>
+    </div>
+    <button class="accordion-toggle" onclick="toggleAccordion(this)">
+      <span class="toggle-left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        See example output
+        <span class="example-badge">Example</span>
+      </span>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-content">
+      <div class="out-label">Example output — Business Case</div>
+
+      <div class="out-section" style="margin-bottom:10px">
+        <div class="out-section-title navy">1. Problem Statement</div>
+        <div class="out-prose">
+          <p>nbn customers experiencing a service fault currently have no digital self-service option. The only path to lodge a fault report is to call the contact centre, where average hold times reach 23 minutes. Once a report is lodged, customers receive no proactive updates and must call back to check status — further driving inbound volume and customer effort.</p>
+          <p>Research across 1,840 residential customers (March 2026) surfaces three acute failure points: 84% of customers default to calling — not because they prefer the phone, but because no alternative exists. 7% give up entirely and wait for the fault to resolve itself. Customers without a fallback connection (22% of the cohort, predominantly rural and fixed-wireless) face the most friction.</p>
+        </div>
+      </div>
+
+      <div class="out-section" style="margin-bottom:10px">
+        <div class="out-section-title navy">2. Proposed Solution</div>
+        <div class="out-prose"><p>Introduce a lightweight digital fault reporting tool, accessible via nbnco.com.au, that allows customers to log a fault, receive a reference number, and track status — without creating an account or calling the contact centre. This business case does not prescribe a technical architecture or vendor.</p></div>
+      </div>
+
+      <div class="out-section" style="margin-bottom:10px">
+        <div class="out-section-title navy">3. Key Benefits</div>
+        <div class="out-table-wrap">
+          <table class="out-table">
+            <thead><tr><th>Benefit</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td>Deflect inbound calls</td><td>A 10% shift to digital self-service would reduce tens of thousands of inbound fault contacts per year.</td></tr>
+              <tr><td>Reduce repeat contacts</td><td>Proactive SMS/email updates and a reference number for self-serve tracking directly address the top frustration of having to call back.</td></tr>
+              <tr><td>Improve NPS for fault events</td><td>Customers want acknowledgement, a reference number, and a plain-English timeframe. A well-executed digital tool addresses all three.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="out-section" style="margin-bottom:10px">
+        <div class="out-section-title navy">4. Scope</div>
+        <div class="out-table-wrap">
+          <table class="out-table">
+            <thead><tr><th>✓ In scope</th><th>✗ Out of scope</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Address-based fault submission (no account required)<br>Fault type selection and optional description<br>Reference number generation and display<br>Status tracking via reference number<br>SMS and email status notifications<br>Mobile-first responsive design<br>WCAG 2.1 AA accessibility compliance</td>
+                <td>Account creation or authenticated portal<br>RSP-facing tooling or back-office integration<br>Automated fault diagnosis or troubleshooting flows<br>MyNBN app changes (separate backlog)<br>Business customer fault reporting</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="out-section" style="margin-bottom:10px">
+        <div class="out-section-title navy">5. Effort Estimate</div>
+        <div class="out-table-wrap">
+          <table class="out-table">
+            <thead><tr><th>Workstream</th><th>Size</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>Discovery & UX design</td><td><strong>S</strong></td><td>Address-lookup pattern already established. Design effort is incremental.</td></tr>
+              <tr><td>Front-end build</td><td><strong>M</strong></td><td>Mobile-first, WCAG 2.1 AA, no-account flow adds state management complexity.</td></tr>
+              <tr><td>API / back-end integration</td><td><strong>M</strong></td><td>Fault ingestion, reference number generation, status polling, notification dispatch.</td></tr>
+              <tr><td>Testing & accessibility audit</td><td><strong>S</strong></td><td>Functional, regression, and WCAG 2.1 AA. Lightweight if built correctly from the outset.</td></tr>
+              <tr><td><strong>Overall</strong></td><td><strong>M</strong></td><td>Estimated 6–10 weeks end-to-end with a dedicated squad.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="notice-box notice-warning">
+        <strong>⚠ Primary risk — Connectivity during a fault event:</strong> 22% of customers have no mobile data fallback when their nbn service fails. A digital tool is unreachable by the customers who most need it. Mitigation: build for performance (sub-4-second load on 3G); the contact centre remains the safety net for this cohort.
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-connector">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    continue in the same conversation
+  </div>
+
+  <!-- ——— PROMPT 3 ——— -->
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <div class="prompt-meta">
+        <div class="step-badge">3</div>
+        <div class="prompt-title">User Stories</div>
+        <span class="role-pill role-ux">UX Designer</span>
+      </div>
+      <div class="header-actions">
+        <button class="copy-btn" onclick="copyPrompt(this, 'p3')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy prompt
+        </button>
+      </div>
+    </div>
+    <div class="prompt-body">
+      <div class="chain-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Continue in the same conversation — Claude has the business case in context.
+      </div>
+      <pre class="prompt-text" id="p3">You are a UX Designer working on the product described in the business case above. You have just reviewed the customer user research in this project files. Write 2 user stories for the primary end customer. Use the format: As a customer, I want to [action] so that [outcome].
+
+Draw directly from the research — each story should trace back to a real frustration or need in the data. Include 2 acceptance criteria per story. Make them specific and testable — no vague words like 'quickly' or 'easily'.</pre>
+    </div>
+    <button class="accordion-toggle" onclick="toggleAccordion(this)">
+      <span class="toggle-left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        See example output
+        <span class="example-badge">Example</span>
+      </span>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-content">
+      <div class="out-label">Example output — User Stories</div>
+
+      <div class="story-card">
+        <div class="story-header">Story 1 — Reporting a fault without an account</div>
+        <div class="story-body">
+          <div class="story-source">Research source: 84% of customers call because no digital alternative exists. Customers ranked 'a way to report online without creating an account' as their top stated need.</div>
+          <div class="story-text">"As a customer, I want to report an nbn fault using only my address and contact details so that I receive a reference number I can use to track progress without needing to log in."</div>
+          <ul class="criteria-list">
+            <li><span class="criteria-num">1</span>A customer can submit a fault report — from landing on the page to receiving a reference number — in 5 or fewer form fields, with no account creation or login step at any point in the flow.</li>
+            <li><span class="criteria-num">2</span>On successful submission, a reference number in the format NBN-2026-XXXXXX is displayed on screen and sent to the customer's nominated SMS or email address within 60 seconds.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-header">Story 2 — Tracking status without calling back</div>
+        <div class="story-body">
+          <div class="story-source">Research source: Frustrations ranked #2, #3, and #4: no confirmation the fault was received; having to re-explain the problem if calling back; no way to check status without calling again.</div>
+          <div class="story-text">"As a customer, I want to check the current status of my fault report using my reference number so that I don't have to call the contact centre and re-explain my problem to get an update."</div>
+          <ul class="criteria-list">
+            <li><span class="criteria-num">1</span>A customer who enters a valid reference number on the status-check page is shown the current fault status, a plain-English description of what is happening, and an estimated resolution time — without being prompted to log in or provide any additional personal details.</li>
+            <li><span class="criteria-num">2</span>When the fault status changes, the customer receives an SMS or email notification within 5 minutes of the status update occurring in the back-end system.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-connector">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    continue in the same conversation
+  </div>
+
+  <!-- ——— PROMPT 4 ——— -->
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <div class="prompt-meta">
+        <div class="step-badge">4</div>
+        <div class="prompt-title">QA Note</div>
+        <span class="role-pill role-ux">UX Designer · Reviewing</span>
+      </div>
+      <div class="header-actions">
+        <button class="copy-btn" onclick="copyPrompt(this, 'p4')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy prompt
+        </button>
+      </div>
+    </div>
+    <div class="prompt-body">
+      <div class="chain-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Continue in the same conversation — Claude reviews the user stories it just wrote.
+      </div>
+      <pre class="prompt-text" id="p4">Review these user stories against the research data.
+- Which story best addresses the highest-ranked frustration?
+- Which story would fail for the 22% with no fallback connectivity?
+- Is there a frustration in the research that no story covers?
+- Do any acceptance criteria use vague language that can't be tested?
+
+Return this as a short QA note to accompany the stories back to the BA.</pre>
+    </div>
+    <button class="accordion-toggle" onclick="toggleAccordion(this)">
+      <span class="toggle-left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        See example output
+        <span class="example-badge">Example</span>
+      </span>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-content">
+      <div class="out-label">Example output — QA Note</div>
+
+      <div class="out-section" style="margin-bottom:8px">
+        <div class="out-section-title green">✓ Story 2 — Clear winner</div>
+        <p style="font-size:13.5px;line-height:1.7">Story 2 directly targets the #1 ranked frustration: 23-minute hold times. If customers can self-serve a status check, the repeat call that drives hold time congestion is eliminated. Story 1 addresses the absence of a digital channel — a prerequisite — but the hold time pain is about what happens after a fault is lodged, not during initial report.<br><br><strong>Action for BA:</strong> No change required. Recommend surfacing this rationale in sprint planning.</p>
+      </div>
+
+      <div class="out-section" style="margin-bottom:8px">
+        <div class="out-section-title amber">⚠ Both stories — Neither is resilient for the 22% cohort</div>
+        <p style="font-size:13.5px;line-height:1.7">Both stories require an active internet connection to function. 22% of customers — predominantly rural and fixed-wireless — have no mobile data fallback when their nbn service fails. Neither story includes any offline, SMS-in, or low-bandwidth fallback path.<br><br><strong>Action for BA:</strong> Add a third user story covering the no-connectivity cohort, or explicitly document this gap as a known exclusion with a named mitigation.</p>
+      </div>
+
+      <div class="out-section" style="margin-bottom:8px">
+        <div class="out-section-title red">✗ Gap — Frustration #5 is unaddressed</div>
+        <p style="font-size:13.5px;line-height:1.7">Frustration #5 — being told 'we'll call you back' with no timeframe — is not addressed by either story. This maps to a proactive outbound notification with a specific resolution timeframe, not just 'we'll contact you.'<br><br><strong>Action for BA:</strong> Consider a third story, or revise Story 2 AC2 to specify that the notification must include an estimated resolution time.</p>
+      </div>
+
+      <div class="out-section">
+        <div class="out-section-title green">✓ Criteria are clean — one flag to note</div>
+        <p style="font-size:13.5px;line-height:1.7">No vague language found. All four acceptance criteria include specific, measurable thresholds. One flag: Story 1 AC1 does not specify the network condition under which the end-to-end flow is measured. A pass on broadband may not reflect real-world behaviour for a customer on degraded mobile.<br><br><strong>Action for BA:</strong> Add a test condition to Story 1 AC1: the flow must complete when tested on a throttled 3G connection at 1.5 Mbps.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-connector">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    continue in the same conversation
+  </div>
+
+  <!-- ——— PROMPT 5 ——— -->
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <div class="prompt-meta">
+        <div class="step-badge">5</div>
+        <div class="prompt-title">Gap Analysis</div>
+        <span class="role-pill role-ba">Business Analyst</span>
+      </div>
+      <div class="header-actions">
+        <button class="copy-btn" onclick="copyPrompt(this, 'p5')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy prompt
+        </button>
+      </div>
+    </div>
+    <div class="prompt-body">
+      <div class="chain-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Continue in the same conversation — Claude has the business case, stories, and QA note.
+      </div>
+      <pre class="prompt-text" id="p5">You are a Business Analyst. You have the business case and the user stories above, plus the UX designer's QA note. Do a quick gap analysis:
+- What does the business case promise that the stories don't cover?
+- Is anything in the stories out of scope for the business case?
+- What is one open question that must be resolved before the PRD can be finalised?</pre>
+    </div>
+    <button class="accordion-toggle" onclick="toggleAccordion(this)">
+      <span class="toggle-left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        See example output
+        <span class="example-badge">Example</span>
+      </span>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-content">
+      <div class="out-label">Example output — Gap Analysis</div>
+
+      <div class="out-section" style="margin-bottom:8px">
+        <div class="out-section-title amber">GAP · 2 items unspecified</div>
+        <p style="font-size:13.5px;line-height:1.7">Notification content and mobile-first performance are promised but unspecified. The business case lists SMS and email notifications as in-scope and names mobile-first as a non-negotiable. Neither is adequately specified in the current stories. A notification that says only 'Your fault status has changed' technically passes Story 2 AC2 but fails the business case intent.<br><br><strong>Action:</strong> Add a notification content specification and a mobile performance criterion specifying sub-4-second load on a throttled 1.5 Mbps 3G connection.</p>
+      </div>
+
+      <div class="out-section" style="margin-bottom:8px">
+        <div class="out-section-title green">CLEAN · No out-of-scope items found</div>
+        <p style="font-size:13.5px;line-height:1.7">Both stories stay within the boundaries set by the business case. No authentication, no troubleshooting logic, no app-specific behaviour is implied by either story. The risk of scope creep is more likely to emerge during back-end integration design, not from the stories.</p>
+      </div>
+
+      <div class="out-section">
+        <div class="out-section-title red">OPEN QUESTION · Blocks PRD finalisation</div>
+        <p style="font-size:13.5px;line-height:1.7">Does the fault management system expose a real-time API that this tool can consume — and who owns the integration? Every functional requirement in both stories depends on this. The reference number format, status update mechanism (poll vs. webhook), notification trigger, and delivery timeline cannot be specified until the API shape is confirmed.<br><br><strong>Required action:</strong> Time-box a 3-day spike with Technology before PRD drafting begins. Output: written confirmation of API availability, update mechanism, reference number format, and integration team ownership.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-connector">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    continue in the same conversation
+  </div>
+
+  <!-- ——— PROMPT 6 ——— -->
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <div class="prompt-meta">
+        <div class="step-badge">6</div>
+        <div class="prompt-title">PRD v0.1</div>
+        <span class="role-pill role-ba">Business Analyst</span>
+      </div>
+      <div class="header-actions">
+        <button class="copy-btn" onclick="copyPrompt(this, 'p6')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy prompt
+        </button>
+      </div>
+    </div>
+    <div class="prompt-body">
+      <div class="chain-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Continue in the same conversation — all prior artefacts are in context.
+      </div>
+      <pre class="prompt-text" id="p6">You are a Business Analyst. Using the business case, the user stories, and the gap analysis above, write a short PRD for this product. Include:
+- What the product does (2 sentences)
+- Who it's for
+- Functional requirements (numbered list)
+- Non-functional requirements (performance, accessibility, connectivity)
+- What's out of scope
+- One open question for the team
+
+Write it so a developer can build from it without a meeting.</pre>
+    </div>
+    <button class="accordion-toggle" onclick="toggleAccordion(this)">
+      <span class="toggle-left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        See example output
+        <span class="example-badge">Example</span>
+      </span>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-content">
+      <div class="out-label">Example output — PRD v0.1</div>
+
+      <div class="notice-box notice-warning" style="margin-bottom:10px">
+        <strong>⚠ PRE-SPIKE DRAFT</strong> — Do not begin build until the open question in Section 5 is resolved. Back-end API availability has not been confirmed.
+      </div>
+
+      <div class="out-section" style="margin-bottom:8px">
+        <div class="out-section-title navy">1. What this product does</div>
+        <p style="font-size:13.5px;line-height:1.7">The nbn Digital Fault Reporting Tool is a public-facing web page on nbnco.com.au that allows residential customers to report an internet fault, receive a reference number, and track the status of their report — without creating an account or calling the contact centre. It replaces the current default of a 23-minute phone queue with a self-service flow that works on any device and proactively notifies the customer by SMS or email when the fault status changes.</p>
+      </div>
+
+      <div class="out-section" style="margin-bottom:8px">
+        <div class="out-section-title navy">2. Functional Requirements — Fault Submission</div>
+        <div class="out-table-wrap">
+          <table class="out-table">
+            <thead><tr><th style="width:80px">ID</th><th>Requirement</th></tr></thead>
+            <tbody>
+              <tr><td>FR-01</td><td>Accessible at a public URL without account creation, login, or app installation at any point in the flow.</td></tr>
+              <tr><td>FR-02</td><td>Form collects: address, fault type (No internet / Slow speeds / Intermittent drops / Other), optional description (300 char limit), contact preference (SMS or email), contact detail. Maximum 5 required fields.</td></tr>
+              <tr><td>FR-03</td><td>Address input mirrors the nbnco.com.au Network Status page address-lookup pattern.</td></tr>
+              <tr><td>FR-04</td><td>On submission, the system generates a reference number in format NBN-YYYY-XXXXXX.</td></tr>
+              <tr><td>FR-05</td><td>On success, a green confirmation banner displays: heading 'Your fault has been reported', reference number at 24px bold (tap-to-copy on mobile), plain-English next steps, and notification confirmation.</td></tr>
+              <tr><td>FR-06</td><td>Reference number sent to the customer's nominated contact within 60 seconds of submission.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="out-section" style="margin-bottom:8px">
+        <div class="out-section-title navy">3. Functional Requirements — Status Tracking</div>
+        <div class="out-table-wrap">
+          <table class="out-table">
+            <thead><tr><th style="width:80px">ID</th><th>Requirement</th></tr></thead>
+            <tbody>
+              <tr><td>FR-07</td><td>Status-check page allows any user to enter a reference number and retrieve fault status without logging in.</td></tr>
+              <tr><td>FR-08</td><td>Status page shows: current status badge (colour + text, ALL CAPS), plain-English description, estimated resolution datetime if available, and 'Last updated' timestamp.</td></tr>
+              <tr><td>FR-09</td><td>When fault status changes, customer receives SMS or email within 5 minutes. Notification must include: new status in plain English, estimated resolution time if known, and reference number.</td></tr>
+              <tr><td>FR-10</td><td>Status descriptions use approved copy patterns. No technical jargon in any customer-facing copy.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="out-section" style="margin-bottom:8px">
+        <div class="out-section-title navy">4. Non-Functional Requirements (key)</div>
+        <div class="out-table-wrap">
+          <table class="out-table">
+            <thead><tr><th style="width:80px">ID</th><th>Requirement</th></tr></thead>
+            <tbody>
+              <tr><td>NFR-01</td><td>Complete submission flow must complete within 4 seconds on a throttled 3G connection at 1.5 Mbps. Hard limit from research data.</td></tr>
+              <tr><td>NFR-02</td><td>Total page weight ≤ 200 KB uncompressed. No third-party tracking scripts on the critical path.</td></tr>
+              <tr><td>NFR-04</td><td>WCAG 2.1 AA across all pages and states. 18% of customers have a disability affecting digital access.</td></tr>
+              <tr><td>NFR-06</td><td>All interactive elements minimum 44×44px touch target.</td></tr>
+              <tr><td>NFR-07</td><td>All form input font sizes minimum 16px — prevents iOS auto-zoom.</td></tr>
+              <tr><td>NFR-11</td><td>Fully functional at 375px viewport width. No horizontal scrolling at any breakpoint.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="notice-box notice-blocker">
+        <strong>🔴 BLOCKER — Open Question:</strong> Does the fault management system expose a real-time API, and who owns the integration? Required: BA to run a 3-day spike with Technology. Confirm API availability, update mechanism (poll vs webhook), reference number format, and owning team before this PRD is baselined.
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-connector">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    continue in the same conversation
+  </div>
+
+  <!-- ——— PROMPT 7 ——— -->
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <div class="prompt-meta">
+        <div class="step-badge">7</div>
+        <div class="prompt-title">System Architecture</div>
+        <span class="role-pill role-dev">Software Developer</span>
+      </div>
+      <div class="header-actions">
+        <button class="copy-btn" onclick="copyPrompt(this, 'p7')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy prompt
+        </button>
+      </div>
+    </div>
+    <div class="prompt-body">
+      <div class="chain-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Continue in the same conversation — Claude has the PRD in context.
+      </div>
+      <pre class="prompt-text" id="p7">You are a software developer. You have received the PRD above. Design the system architecture:
+- List the components and how they connect
+- Define the data model for the primary record
+- List the API endpoints (method, path, purpose)
+- Ensure a system diagram is also present</pre>
+    </div>
+    <button class="accordion-toggle" onclick="toggleAccordion(this)">
+      <span class="toggle-left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        See example output
+        <span class="example-badge">Example</span>
+      </span>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-content">
+      <div class="out-label">Example output — System Architecture v0.1</div>
+
+      <div class="notice-box notice-warning" style="margin-bottom:10px">
+        <strong>⚠ Contingent on API spike</strong> — back-end integration details are assumed pending Technology confirmation.
+      </div>
+
+      <div class="out-section" style="margin-bottom:8px">
+        <div class="out-section-title navy">1. Components and how they connect</div>
+        <div class="out-table-wrap">
+          <table class="out-table">
+            <thead><tr><th>Component</th><th>Type</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td>Client browser</td><td>End-user client</td><td>Renders server-side HTML. Submits form via HTTPS POST. No JS framework required — progressive enhancement only.</td></tr>
+              <tr><td>CDN / Edge cache</td><td>Infrastructure</td><td>Serves static assets from edge nodes. Enforces sub-4-second load constraint. Passes dynamic requests to the web application.</td></tr>
+              <tr><td>Web application</td><td>Owned service</td><td>Server-rendered Node.js. Handles: (1) fault submission, (2) status lookup, (3) webhook receiver. The only component owned by this project.</td></tr>
+              <tr><td>Fault management API</td><td>External dependency</td><td>Back-end system of record. Owned by Technology (team TBC). Exposes endpoints for fault creation, status retrieval, and status-change webhooks.</td></tr>
+              <tr><td>Notification service</td><td>External dependency</td><td>Dispatches SMS and email. Accepts job payload from web application. Must deliver within 5 minutes of status change.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="out-section" style="margin-bottom:8px">
+        <div class="out-section-title navy">2. Data Model — FaultReport</div>
+        <div class="out-table-wrap">
+          <table class="out-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Constraint</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>id</td><td>UUID</td><td>PK NOT NULL</td><td>Internal primary key.</td></tr>
+              <tr><td>reference_number</td><td>VARCHAR(20)</td><td>UNIQUE NOT NULL</td><td>Format NBN-YYYY-XXXXXX. Customer-facing identifier.</td></tr>
+              <tr><td>address</td><td>TEXT</td><td>NOT NULL</td><td>Full validated address. PII — encrypt at rest.</td></tr>
+              <tr><td>fault_type</td><td>ENUM</td><td>NOT NULL</td><td>NO_INTERNET | SLOW_SPEEDS | INTERMITTENT | OTHER</td></tr>
+              <tr><td>contact_preference</td><td>ENUM</td><td>NOT NULL</td><td>SMS | EMAIL</td></tr>
+              <tr><td>contact_value</td><td>VARCHAR(255)</td><td>NOT NULL</td><td>Phone (E.164) or email. PII — encrypt at rest. Purge 90 days post-resolution.</td></tr>
+              <tr><td>status</td><td>ENUM</td><td>NOT NULL</td><td>SUBMITTED | IN_PROGRESS | PENDING_CUSTOMER | ESCALATED | RESOLVED</td></tr>
+              <tr><td>estimated_resolution</td><td>TIMESTAMPTZ</td><td>NULL</td><td>From fault API. Null if not available.</td></tr>
+              <tr><td>submitted_at</td><td>TIMESTAMPTZ</td><td>NOT NULL</td><td>Set on creation, never updated.</td></tr>
+              <tr><td>status_updated_at</td><td>TIMESTAMPTZ</td><td>NOT NULL</td><td>Updated on each webhook event. Displayed as 'Last updated'.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="out-section">
+        <div class="out-section-title navy">3. API Endpoints — Web Application (exposed to client)</div>
+        <div class="out-table-wrap">
+          <table class="out-table">
+            <thead><tr><th>Method</th><th>Path</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td>GET</td><td>/report</td><td>Renders fault submission form. No auth required.</td></tr>
+              <tr><td>POST</td><td>/report</td><td>Validates form, calls fault management API, stores FaultReport, redirects to confirmation page.</td></tr>
+              <tr><td>GET</td><td>/report/confirmation/{ref}</td><td>Renders confirmation page with reference number and next steps.</td></tr>
+              <tr><td>GET</td><td>/status</td><td>Renders reference number entry page. No auth required.</td></tr>
+              <tr><td>GET</td><td>/status/{ref}</td><td>Fetches latest status from fault API, renders status page with badge, description, estimate, timeline.</td></tr>
+              <tr><td>POST</td><td>/webhooks/fault-status</td><td>Receives status-change events from fault API. Validates HMAC. Returns HTTP 200 immediately. Processes async.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-connector">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    continue in the same conversation
+  </div>
+
+  <!-- ——— PROMPT 8 ——— -->
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <div class="prompt-meta">
+        <div class="step-badge">8</div>
+        <div class="prompt-title">GitHub Issues</div>
+        <span class="role-pill role-dev">Software Developer</span>
+      </div>
+      <div class="header-actions">
+        <button class="copy-btn" onclick="copyPrompt(this, 'p8')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy prompt
+        </button>
+      </div>
+    </div>
+    <div class="prompt-body">
+      <div class="chain-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Continue in the same conversation — Claude has the PRD and architecture in context.
+      </div>
+      <pre class="prompt-text" id="p8">You are a software developer. You have received the PRD above. Given the PRD and the information so far, create a set of GitHub issues to develop the software.</pre>
+    </div>
+    <button class="accordion-toggle" onclick="toggleAccordion(this)">
+      <span class="toggle-left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        See example output
+        <span class="example-badge">Example</span>
+      </span>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-content">
+      <div class="out-label">Example output — 13 GitHub Issues across 5 milestones</div>
+      <div class="out-table-wrap">
+        <table class="out-table">
+          <thead><tr><th>#</th><th>Title</th><th>Milestone</th><th>Labels</th></tr></thead>
+          <tbody>
+            <tr><td>#1</td><td>Spike: confirm fault management API shape and integration ownership</td><td>0 — Pre-build spike</td><td><span class="tag tag-spike">spike</span><span class="tag tag-blocker">blocker</span><span class="tag tag-backend">backend</span></td></tr>
+            <tr><td>#2</td><td>Spike: confirm data retention and PII handling with Privacy/Legal</td><td>0 — Pre-build spike</td><td><span class="tag tag-spike">spike</span><span class="tag tag-blocker">blocker</span><span class="tag tag-comply">compliance</span></td></tr>
+            <tr><td>#3</td><td>Set up project scaffold: Node.js app, database schema, CI pipeline</td><td>1 — Foundation</td><td><span class="tag tag-infra">infrastructure</span><span class="tag tag-infra">setup</span></td></tr>
+            <tr><td>#4</td><td>Build: address lookup integration</td><td>2 — Core submission flow</td><td><span class="tag tag-feature">feature</span><span class="tag tag-frontend">frontend</span><span class="tag tag-backend">backend</span></td></tr>
+            <tr><td>#5</td><td>Build: fault submission form and POST handler</td><td>2 — Core submission flow</td><td><span class="tag tag-feature">feature</span><span class="tag tag-frontend">frontend</span><span class="tag tag-backend">backend</span></td></tr>
+            <tr><td>#6</td><td>Build: submission confirmation page</td><td>2 — Core submission flow</td><td><span class="tag tag-feature">feature</span><span class="tag tag-frontend">frontend</span></td></tr>
+            <tr><td>#7</td><td>Build: outbound notification dispatch (SMS and email)</td><td>2 — Core submission flow</td><td><span class="tag tag-feature">feature</span><span class="tag tag-backend">backend</span></td></tr>
+            <tr><td>#8</td><td>Build: status lookup page</td><td>3 — Status tracking</td><td><span class="tag tag-feature">feature</span><span class="tag tag-frontend">frontend</span><span class="tag tag-backend">backend</span></td></tr>
+            <tr><td>#9</td><td>Build: webhook receiver and status-change notification dispatch</td><td>3 — Status tracking</td><td><span class="tag tag-feature">feature</span><span class="tag tag-backend">backend</span></td></tr>
+            <tr><td>#10</td><td>Build: mobile-first styling, performance budget, design system</td><td>4 — Polish and compliance</td><td><span class="tag tag-feature">feature</span><span class="tag tag-frontend">frontend</span><span class="tag tag-access">accessibility</span></td></tr>
+            <tr><td>#11</td><td>Build: accessibility audit and WCAG 2.1 AA compliance</td><td>4 — Polish and compliance</td><td><span class="tag tag-feature">feature</span><span class="tag tag-access">accessibility</span></td></tr>
+            <tr><td>#12</td><td>Test: end-to-end test suite covering both user stories</td><td>4 — Polish and compliance</td><td><span class="tag tag-test">testing</span></td></tr>
+            <tr><td>#13</td><td>Release: staging deployment, smoke test, and go-live checklist</td><td>5 — Release</td><td><span class="tag tag-release">release</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="notice-box notice-warning" style="margin-top:10px">
+        <strong>Milestone 0 is a hard gate</strong> — Issues #1 and #2 must be closed with written confirmation before any feature branches are created or sprint planning begins for milestones 2–5.
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-connector">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    continue in the same conversation
+  </div>
+
+  <!-- ——— PROMPT 9 ——— -->
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <div class="prompt-meta">
+        <div class="step-badge">9</div>
+        <div class="prompt-title">Design Brief</div>
+        <span class="role-pill role-ux">UX Designer</span>
+      </div>
+      <div class="header-actions">
+        <button class="copy-btn" onclick="copyPrompt(this, 'p9')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy prompt
+        </button>
+      </div>
+    </div>
+    <div class="prompt-body">
+      <div class="chain-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Final prompt — continue in the same conversation with all prior artefacts in context.
+      </div>
+      <pre class="prompt-text" id="p9">You are a UX Designer. You have two inputs:
+1. The PRD above
+2. The Design System file in the project.
+
+Transform the PRD into a design brief for an AI design tool. Every colour, font, and component decision must reference the design system file — do not invent values.
+
+PRODUCT CONTEXT
+- What this product does in one sentence
+- Who is using it and in what emotional state
+- The most important thing the design must get right
+
+DESIGN PRINCIPLES (3 only)
+- Derive from the customer research, not generic UX principles
+- Each must directly address a real frustration from the data
+
+DESIGN CONSTRAINTS
+- Mobile-first, one-handed use
+- Low bandwidth — no heavy assets
+- WCAG 2.1 AA — use contrast ratios from the design system
+- Colours: use only tokens defined in the design system file
+- No account creation or login required
+
+COMPONENT LIST
+- Every UI component needed to complete the primary user flow
+- For each, reference the exact design system token or pattern
+- Group as: Forms / Feedback & Status / Navigation / Notifications
+
+TONE OF VOICE
+- Use the tone rules from the design system file
+- Write the exact copy for:
+  a) The primary action confirmation message
+  b) The error message when the main input fails
+  c) The status update notification (SMS or email)
+
+SUCCESS CRITERIA
+- How will we know the design has solved the top 3 customer frustrations from the research?</pre>
+    </div>
+    <button class="accordion-toggle" onclick="toggleAccordion(this)">
+      <span class="toggle-left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        See example output
+        <span class="example-badge">Example</span>
+      </span>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-content">
+      <div class="out-label">Example output — Design Brief</div>
+
+      <div class="out-section" style="margin-bottom:8px">
+        <div class="out-section-title navy">Product Context</div>
+        <p style="font-size:13.5px;line-height:1.7;margin-bottom:8px"><strong>What it does:</strong> A public-facing web page on nbnco.com.au that lets residential customers report an internet fault, receive a reference number, and track their fault status — without creating an account, installing an app, or calling a contact centre.</p>
+        <p style="font-size:13.5px;line-height:1.7;margin-bottom:8px"><strong>Who is using it:</strong> Customers in a state of frustration and mild distress. Their internet is down. They may be working from home, have children trying to study, or managing a household that depends on connectivity. 71% are on a mobile phone — likely the only connected device available. They do not want to read. They want to know that someone has heard them and that something is being done.</p>
+        <p style="font-size:13.5px;line-height:1.7"><strong>Most important thing:</strong> The reference number must feel like a receipt. It must be impossible to miss, trivial to copy, and immediately sent to the customer's phone or inbox.</p>
+      </div>
+
+      <div class="out-section" style="margin-bottom:8px">
+        <div class="out-section-title navy">Design Principles</div>
+        <div style="margin-bottom:8px;padding:10px;background:#f7fbff;border-radius:6px;font-size:13.5px;line-height:1.7">
+          <strong>Principle 1 — Acknowledge instantly, then explain</strong><br>
+          <em style="font-size:12px;color:var(--grey-mid)">Research: Frustration #2 — No confirmation that their fault was received.</em><br>
+          The submission confirmation must be the first thing the customer sees. Reference number at 24px bold is the first scannable element. Full-width green confirmation banner appears immediately. No interstitial pages.
+        </div>
+        <div style="margin-bottom:8px;padding:10px;background:#f7fbff;border-radius:6px;font-size:13.5px;line-height:1.7">
+          <strong>Principle 2 — Never make them call to find out</strong><br>
+          <em style="font-size:12px;color:var(--grey-mid)">Research: Frustrations #3 and #4 — Having to re-explain the problem; no way to check status without calling.</em><br>
+          The reference number is the customer's key. Every status page must be reachable with that reference number alone. Proactive notification dispatched within 5 minutes of any status change.
+        </div>
+        <div style="padding:10px;background:#f7fbff;border-radius:6px;font-size:13.5px;line-height:1.7">
+          <strong>Principle 3 — Speed is an accessibility requirement</strong><br>
+          <em style="font-size:12px;color:var(--grey-mid)">Research: Frustration #1 — Average hold time of 23 minutes. Page load tolerance: under 4 seconds.</em><br>
+          Every design decision must be evaluated against the 4-second constraint on 1.5 Mbps. System font stack only. No decorative images on the submission or confirmation pages. Total page weight ≤ 200 KB uncompressed.
+        </div>
+      </div>
+
+      <div class="out-section" style="margin-bottom:8px">
+        <div class="out-section-title navy">Design Constraints — Colour Tokens</div>
+        <div class="out-table-wrap">
+          <table class="out-table">
+            <thead><tr><th>Token</th><th>Hex</th><th>Permitted use</th></tr></thead>
+            <tbody>
+              <tr><td>--color-primary</td><td>#0A6EBD</td><td>Primary CTA buttons, links, active nav, input focus ring</td></tr>
+              <tr><td>--color-primary-dark</td><td>#005A9E</td><td>Button hover, nav bar background</td></tr>
+              <tr><td>--color-navy</td><td>#00447C</td><td>Page headers, section headings</td></tr>
+              <tr><td>--color-success</td><td>#2E7D32</td><td>Confirmation banner, RESOLVED badge</td></tr>
+              <tr><td>--color-warning</td><td>#F57C00</td><td>IN_PROGRESS, PENDING_CUSTOMER badges</td></tr>
+              <tr><td>--color-error</td><td>#C62828</td><td>ESCALATED badge, validation errors</td></tr>
+              <tr><td>--color-info</td><td>#0277BD</td><td>SUBMITTED badge, informational banners</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="out-section" style="margin-bottom:8px">
+        <div class="out-section-title navy">Tone of Voice — Exact Copy</div>
+        <div style="margin-bottom:8px;padding:12px;background:white;border:1px solid #b3d1f7;border-radius:6px;font-size:13.5px;line-height:1.7">
+          <strong style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--grey-mid)">Confirmation banner</strong><br>
+          Your fault has been reported.<br>
+          Reference number: <strong>NBN-2026-XXXXXX</strong><br>
+          We'll send you an SMS when the status of your fault changes. Most faults are resolved within 4–8 hours. You can check back on this page at any time using your reference number.
+        </div>
+        <div style="margin-bottom:8px;padding:12px;background:white;border:1px solid #ef9a9a;border-radius:6px;font-size:13.5px;line-height:1.7">
+          <strong style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#c62828">Error — address not found</strong><br>
+          We couldn't find your address. Check the address and try again, or call us on 1800 687 626 if you need help.
+        </div>
+        <div style="padding:12px;background:white;border:1px solid #b3d1f7;border-radius:6px;font-size:13.5px;line-height:1.7">
+          <strong style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--grey-mid)">SMS notification</strong><br>
+          nbn update: Your fault NBN-2026-XXXXXX is now [plain-English status]. [If known: We expect your service restored by [datetime].] Check details: nbnco.com.au/status/NBN-2026-XXXXXX
+        </div>
+      </div>
+
+      <div class="out-section">
+        <div class="out-section-title navy">Success Criteria</div>
+        <div class="out-table-wrap">
+          <table class="out-table">
+            <thead><tr><th>Frustration addressed</th><th>Measurable threshold</th><th>How to verify</th></tr></thead>
+            <tbody>
+              <tr><td>#1 — 23-minute hold time</td><td>Complete submission flow in under 4 minutes on 1.5 Mbps throttled, one-handed, 375px viewport</td><td>Usability test, 5 participants on degraded mobile. Median under 4 minutes, zero navigation errors.</td></tr>
+              <tr><td>#2 — No confirmation received</td><td>100% of participants can recall or locate their reference number 5 minutes after submission without returning to the confirmation page</td><td>After submission, distract participant 5 minutes, then ask them to check their fault status. Pass: 5/5 provide the reference number.</td></tr>
+              <tr><td>#3 — Having to re-explain on callback</td><td>Participant checks current status using only the reference number in under 60 seconds, no other credentials</td><td>Give participant a reference number, time from /status navigation to reading status aloud. Pass: median under 60 seconds.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /panel-fault -->
+
+
+<!-- ===================== ACTIVITY 2 ===================== -->
+<div class="activity-panel" id="panel-fun">
+
+  <div class="activity-intro">
+    <h2>Fun Activities</h2>
+    <p>Four standalone prompts — each is independent. Pick any one, fill in your details, and paste into Claude. These work in a fresh conversation.</p>
+    <div class="how-to">
+      <strong>How to use:</strong> Each activity is self-contained. Where you see <span style="color:var(--blue);font-weight:700">[PLACEHOLDERS IN BLUE]</span>, replace them with your own information before copying.
+    </div>
+  </div>
+
+  <div class="fun-grid">
+
+    <!-- FUN 1 -->
+    <div class="fun-card">
+      <div class="fun-card-header">
+        <div class="fun-card-meta">
+          <div class="fun-icon fun-icon-img">🎨</div>
+          <div>
+            <div class="fun-card-title">Generate Your nbn® Team Avatar</div>
+            <div class="fun-card-desc">Create a personalised beach-style illustrated avatar</div>
+          </div>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this, 'pfun1')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy prompt
+        </button>
+      </div>
+      <div class="fun-card-body">
+        <div class="fillin-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Fill in your personal details in the top section before copying. Upload a photo of yourself alongside the prompt for best results.
+        </div>
+        <pre class="prompt-text" id="pfun1">Fill in your details below, then send this whole prompt to Claude with a photo of yourself:
+
+{about me}:
+- Name: <span class="placeholder">[YOUR NAME]</span>
+- Role at NBN: <span class="placeholder">[YOUR ROLE]</span>
+- 1–2 hobbies: <span class="placeholder">[E.G. SURFING, COOKING]</span>
+- One thing colleagues don't know about me: <span class="placeholder">[YOUR SECRET]</span>
+
+---
+
+Situation
+You are creating illustrated team avatars for NBN's AI bootcamp team page that authentically represent individual team members through their hobbies and personal interests while maintaining alignment with NBN's playful, beach-inspired visual identity.
+
+Task
+Generate a circular illustrated avatar of the person shown in the attached photo. The avatar must incorporate visual elements derived from the hobbies listed above to authentically represent their personality and interests. The final composition must be contained within a circular frame and use NBN's signature blue (#1b6cff, #5690fd, #adc7fa) and light grey/white (#ffffff, #e8e8e8) color palette.
+
+Objective
+Create warm, playful, and relaxed avatar illustrations with a summery, beach-inspired aesthetic that feels personal and approachable rather than corporate, incorporating NBN's signature blue and white/light grey brand colors throughout the composition.
+
+Brand Colors:
+Primary: signature blue (#1b6cff, #5690fd, #adc7fa) and light grey/white (#ffffff, #e8e8e8)
+Accent: Coral/Pink (#FF7B9C), Turquoise/Aqua (#5DD9C1), Peach (#FFB88C)
+
+Visual Approach:
+- Flat, graphic illustration style with smooth gradients and soft shadows
+- Beach/summer aesthetic with floaties, inflatables, waves, sand, beach umbrellas
+- Rounded, friendly shapes and organic curves
+- Playful props that feel vacation-inspired (inflatable rings, beach balls, surfboards, inner tubes)
+- Simple, clean compositions with plenty of breathing room
+- The person should be relaxed, casual, engaged naturally with their hobby
+
+Style Guidelines:
+- Illustration should be flat and graphic, not realistic or photographic
+- Use yellow and purple liberally: in water, sand, inflatables, clothing, accessories, shadows
+- Incorporate beach/water elements even if the hobby isn't water-related
+- Include whimsical floating elements: starfish, shells, small sparkles, gentle waves
+- Soft gradients within shapes (yellow to peach, purple to lavender)
+- Keep facial features simple and friendly
+
+Composition Requirements:
+- Final output must work within a circular frame
+- Center the subject with hobby-relevant props
+- Use yellow as the dominant background color (sand, sunlight, floaties)
+- Add purple as water, shadows, or accent elements
+- Keep composition uncluttered with 2–4 main visual elements maximum
+- Ensure the subject's head/upper body is clearly visible and well-framed</pre>
+      </div>
+    </div>
+
+    <!-- FUN 2 -->
+    <div class="fun-card">
+      <div class="fun-card-header">
+        <div class="fun-card-meta">
+          <div class="fun-icon fun-icon-idea">💡</div>
+          <div>
+            <div class="fun-card-title">Turn Your Side Hustle Into a Product Idea</div>
+            <div class="fun-card-desc">Generate a full creative brief from what you love doing</div>
+          </div>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this, 'pfun2')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy prompt
+        </button>
+      </div>
+      <div class="fun-card-body">
+        <div class="fillin-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Replace the placeholder with your own side hustle or passion before copying.
+        </div>
+        <pre class="prompt-text" id="pfun2">My side hustle and what I love to do is: <span class="placeholder">[DESCRIBE YOUR SIDE HUSTLE OR PASSION — e.g. "I make ceramics and sell them at markets" or "I run a community football team"]</span>
+
+Generate a creative brief based on the above, containing a new product idea that combines both a physical device and a mobile companion app.
+
+Include:
+
+**Problem Statement**
+What specific user pain point does this solve? Who experiences this problem and in what context? Quantify the frequency or impact.
+
+**Product Overview**
+- Mobile App: Complementary features, data visualization, control interface, and cloud connectivity
+- Integration: How the device and app work together to deliver value neither could alone
+
+**Target User**
+Primary user demographic, behaviors, and motivations. Where do they currently struggle? What alternatives do they use today?
+
+**Core Value Proposition**
+The single most important benefit this product delivers. Complete this sentence: "Unlike [alternatives], this product enables users to [key benefit] by [unique approach]."
+
+**User Experience**
+Brief description of the setup flow, daily use pattern, and key moments of interaction between device and app.
+
+**Technical Requirements**
+Device: sensors, connectivity, power, durability considerations
+App: platforms (iOS/Android), key screens, data requirements
+
+**Business Model**
+Revenue approach (device sales, subscription, freemium app, etc.) and estimated pricing.
+
+**Success Metrics**
+3–5 measurable indicators that would validate product-market fit within first 6–12 months.
+
+Use clear, specific language. Avoid marketing hyperbole. Focus on solving a real problem in a differentiated way.</pre>
+      </div>
+    </div>
+
+    <!-- FUN 3 -->
+    <div class="fun-card">
+      <div class="fun-card-header">
+        <div class="fun-card-meta">
+          <div class="fun-icon fun-icon-deck">📊</div>
+          <div>
+            <div class="fun-card-title">Generate a 10-Slide Pitch Deck</div>
+            <div class="fun-card-desc">Full slide structure with brand, copy, and visual direction</div>
+          </div>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this, 'pfun3')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy prompt
+        </button>
+      </div>
+      <div class="fun-card-body">
+        <div class="fillin-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Replace every <strong>[PLACEHOLDER]</strong> with your product details. Works great after running the Side Hustle prompt above!
+        </div>
+        <pre class="prompt-text" id="pfun3">Design a 10-slide pitch deck for <span class="placeholder">[PRODUCT NAME]</span> — <span class="placeholder">[ONE-LINE DESCRIPTION OF WHAT IT IS AND WHO IT'S FOR]</span>.
+
+BRAND
+- Product name: <span class="placeholder">[PRODUCT NAME]</span>
+- Tagline: "<span class="placeholder">[SHORT PUNCHY TAGLINE — e.g. 'Know your pet. Before the vet.']</span>"
+- Color palette: <span class="placeholder">[PRIMARY COLOR + HEX]</span> as primary, <span class="placeholder">[BACKGROUND COLOR + HEX]</span> as background, <span class="placeholder">[ACCENT COLOR + HEX]</span> as accent
+- Typography: clean sans-serif, <span class="placeholder">[TONE DESCRIPTOR — e.g. friendly, bold, premium]</span>
+- Tone: <span class="placeholder">[2–3 TONE WORDS — e.g. warm, modern, trustworthy]</span>
+
+SLIDE STRUCTURE
+
+Slide 1 — Cover
+<span class="placeholder">[PRODUCT NAME]</span> logo/wordmark centered. Tagline below. Minimal, high-impact. Hero image or illustration representing <span class="placeholder">[CORE USE CASE OR USER MOMENT]</span>.
+
+Slide 2 — The problem
+<span class="placeholder">[KEY MARKET STAT]</span>. <span class="placeholder">[TARGET USER]</span> struggle with <span class="placeholder">[SPECIFIC PAIN POINT]</span> because <span class="placeholder">[ROOT CAUSE]</span>. The cost of this problem: <span class="placeholder">[QUANTIFIED IMPACT — time, money, or emotional cost]</span>. Use a stat-forward layout with one strong visual metaphor.
+
+Slide 3 — The insight
+<span class="placeholder">[ONE SHARP REFRAME OF THE PROBLEM]</span>. Single statement slide with a minimal supporting illustration.
+
+Slide 4 — The solution
+<span class="placeholder">[PRODUCT NAME]</span>: <span class="placeholder">[DESCRIBE THE PRODUCT IN 2 SENTENCES]</span>. Show <span class="placeholder">[KEY VISUAL — e.g. device + phone mockup / dashboard screenshot]</span> as the hero element.
+
+Slide 5 — How it works
+3-step visual flow:
+1. <span class="placeholder">[FIRST USER ACTION — setup or entry point]</span>
+2. <span class="placeholder">[CORE PRODUCT BEHAVIOUR — what happens automatically]</span>
+3. <span class="placeholder">[VALUE DELIVERED — the moment the user benefits]</span>
+Use an icon-driven horizontal flow diagram.
+
+Slide 6 — Target user
+Primary: <span class="placeholder">[DEMOGRAPHIC — age range, lifestyle, context]</span>. They currently <span class="placeholder">[CURRENT BEHAVIOUR OR WORKAROUND]</span>. They want <span class="placeholder">[UNDERLYING DESIRE]</span>. Use a persona card layout with a photo placeholder and 3–4 key traits.
+
+Slide 7 — Market opportunity
+<span class="placeholder">[MARKET SIZE STAT]</span>. <span class="placeholder">[DESCRIBE THE GAP]</span>. Position <span class="placeholder">[PRODUCT NAME]</span> in a 2x2 matrix: <span class="placeholder">[X-AXIS LABEL]</span> vs <span class="placeholder">[Y-AXIS LABEL]</span>. We sit in the <span class="placeholder">[TARGET QUADRANT]</span> quadrant.
+
+Slide 8 — Business model
+- <span class="placeholder">[REVENUE STREAM 1 — e.g. Device: $XX one-time]</span>
+- <span class="placeholder">[REVENUE STREAM 2 — e.g. Subscription: $XX/month]</span>
+- <span class="placeholder">[FREE TIER OR ENTRY POINT if applicable]</span>
+- Target LTV: <span class="placeholder">[$AMOUNT]</span> over <span class="placeholder">[TIME PERIOD]</span>
+Use a clean pricing card layout.
+
+Slide 9 — Traction & roadmap
+Phase 1 (<span class="placeholder">[TIMEFRAME]</span>): <span class="placeholder">[MILESTONE 1]</span>
+Phase 2 (<span class="placeholder">[TIMEFRAME]</span>): <span class="placeholder">[MILESTONE 2]</span>
+Phase 3 (<span class="placeholder">[TIMEFRAME]</span>): <span class="placeholder">[MILESTONE 3]</span>
+Use a horizontal timeline with milestones.
+
+Slide 10 — The ask
+Seeking $<span class="placeholder">[AMOUNT]</span> <span class="placeholder">[FUNDING TYPE]</span>. Use of funds: <span class="placeholder">[% ACTION 1]</span>, <span class="placeholder">[% ACTION 2]</span>, <span class="placeholder">[% ACTION 3]</span>. Closing statement: "<span class="placeholder">[MEMORABLE CLOSING LINE]</span>." Strong CTA with founder contact details placeholder.
+
+DESIGN INSTRUCTIONS
+- Each slide: one headline, one supporting visual, minimal body text (max 30 words)
+- Use icons and illustrations rather than stock photos where possible
+- Consistent header bar with <span class="placeholder">[PRODUCT NAME]</span> wordmark and slide number on every slide
+- Slide dimensions: 16:9 widescreen</pre>
+      </div>
+    </div>
+
+    <!-- FUN 4 -->
+    <div class="fun-card">
+      <div class="fun-card-header">
+        <div class="fun-card-meta">
+          <div class="fun-icon fun-icon-proto">📱</div>
+          <div>
+            <div class="fun-card-title">Build an Interactive Prototype</div>
+            <div class="fun-card-desc">Generate a clickable HTML prototype for any product</div>
+          </div>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this, 'pfun4')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy prompt
+        </button>
+      </div>
+      <div class="fun-card-body">
+        <div class="fillin-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Replace every <strong>[PLACEHOLDER]</strong> with your product details. You can reuse the brief from the Side Hustle prompt to fill these in quickly.
+        </div>
+        <pre class="prompt-text" id="pfun4">Build an interactive prototype for <span class="placeholder">[PRODUCT NAME]</span> — <span class="placeholder">[ONE-LINE DESCRIPTION OF WHAT IT IS AND WHO IT'S FOR]</span>.
+
+CONTEXT
+This prototype is meant to <span class="placeholder">[PURPOSE — e.g. validate the core user flow / demonstrate to investors / test with users]</span>.
+Focus only on the <span class="placeholder">[NUMBER — e.g. 3–5]</span> most critical screens. Do not build every screen — prioritise the flow that delivers the core value proposition.
+
+BRAND
+- Product name: <span class="placeholder">[PRODUCT NAME]</span>
+- Primary color: <span class="placeholder">[HEX — e.g. #0F6E56]</span>
+- Secondary color: <span class="placeholder">[HEX — e.g. #EF9F27]</span>
+- Background color: <span class="placeholder">[HEX — e.g. #FAFAF7]</span>
+- Text color: <span class="placeholder">[HEX — e.g. #1A1A1A]</span>
+- Font style: <span class="placeholder">[DESCRIPTOR — e.g. clean sans-serif, rounded and friendly, bold and modern]</span>
+- Tone: <span class="placeholder">[2–3 WORDS — e.g. warm and trustworthy / bold and energetic / calm and minimal]</span>
+
+DEVICE FORMAT
+- Target: <span class="placeholder">[MOBILE (375px wide) / TABLET / DESKTOP / RESPONSIVE]</span>
+- Navigation style: <span class="placeholder">[BOTTOM TAB BAR / TOP NAV / SIDEBAR / NONE]</span>
+
+SCREENS TO BUILD
+
+Screen 1 — <span class="placeholder">[SCREEN NAME, e.g. Onboarding / Home / Dashboard]</span>
+Purpose: <span class="placeholder">[WHAT THE USER IS TRYING TO DO ON THIS SCREEN]</span>
+Key elements: <span class="placeholder">[LIST 3–5 UI COMPONENTS]</span>
+User action: <span class="placeholder">[WHAT HAPPENS WHEN THEY INTERACT — e.g. tap "Get started" → go to Screen 2]</span>
+
+Screen 2 — <span class="placeholder">[SCREEN NAME]</span>
+Purpose: <span class="placeholder">[WHAT THE USER IS TRYING TO DO]</span>
+Key elements: <span class="placeholder">[LIST 3–5 UI COMPONENTS]</span>
+User action: <span class="placeholder">[INTERACTION + TRANSITION]</span>
+
+Screen 3 — <span class="placeholder">[SCREEN NAME]</span>
+Purpose: <span class="placeholder">[WHAT THE USER IS TRYING TO DO]</span>
+Key elements: <span class="placeholder">[LIST 3–5 UI COMPONENTS]</span>
+User action: <span class="placeholder">[INTERACTION + TRANSITION]</span>
+
+Screen 4 — <span class="placeholder">[SCREEN NAME — optional]</span>
+Purpose: <span class="placeholder">[WHAT THE USER IS TRYING TO DO]</span>
+Key elements: <span class="placeholder">[LIST 3–5 UI COMPONENTS]</span>
+User action: <span class="placeholder">[INTERACTION + TRANSITION]</span>
+
+CORE USER FLOW
+The prototype must demonstrate this end-to-end journey:
+<span class="placeholder">[STEP 1 — e.g. User opens app and sees the home screen]</span>
+→ <span class="placeholder">[STEP 2 — e.g. User taps the primary CTA]</span>
+→ <span class="placeholder">[STEP 3 — e.g. User completes a key action]</span>
+→ <span class="placeholder">[STEP 4 — e.g. User sees the value-delivery moment / success state]</span>
+
+DATA & CONTENT
+- Use realistic dummy data (not "Lorem ipsum"). Base content on: <span class="placeholder">[DESCRIBE THE DOMAIN]</span>
+- Key metrics or numbers to display: <span class="placeholder">[LIST]</span>
+- Tone of microcopy: <span class="placeholder">[DESCRIPTOR — e.g. encouraging and plain-language / professional and concise]</span>
+
+INTERACTIONS
+- Clicking the primary CTA on each screen should navigate to the next screen
+- Show at least one <span class="placeholder">[INTERACTION TYPE — e.g. alert / modal / chart update / form validation]</span>
+- Include a visible back/home navigation so the full flow is explorable
+
+DESIGN INSTRUCTIONS
+- Flat, clean UI — no heavy gradients or drop shadows
+- Mobile-first layout with generous tap targets (min 44px)
+- Every screen must have: a clear headline, a primary action, and supporting content
+- Accessibility: sufficient color contrast, readable font sizes (min 13px body)
+
+OUTPUT FORMAT
+- Build as a single self-contained HTML file
+- All screens visible via navigation — no page reloads
+- Include a small screen indicator (e.g. "Screen 2 of 4") so reviewers can orient themselves
+- Add a "Reset to start" button to replay the flow from Screen 1</pre>
+      </div>
+    </div>
+
+  </div><!-- /fun-grid -->
+</div><!-- /panel-fun -->
+
+
+<!-- ===================== ACTIVITY 3 — STARTUP SDLC ===================== -->
+<div class="activity-panel" id="panel-sdlc">
+
+  <div class="activity-intro">
+    <h2>Startup SDLC — Agentic AI in Practice</h2>
+    <p>Use your startup idea from this morning. Each step builds on the last — copy the output from one step and paste it into the next prompt. The example throughout uses <strong>TapLocal</strong> — a tap-to-pay mobile app for market vendors who lose sales when customers don't carry cash.</p>
+    <div class="how-to">
+      <strong>How to use:</strong> Each card shows a <em>template</em> you fill in, and an <em>example</em> using TapLocal. Replace every <span style="color:var(--blue);font-weight:700">[bracket]</span> with your own startup's details before copying. For steps 2–5, paste the full output from the previous step where indicated.
+    </div>
+  </div>
+
+  <!-- ——— STEP 1 ——— -->
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <div class="prompt-meta">
+        <div class="step-badge">1</div>
+        <div class="prompt-title">The Founder's Email</div>
+        <span class="role-pill role-gm">Founder / Exec</span>
+        <span class="time-pill">10 min</span>
+      </div>
+      <div class="header-actions">
+        <button class="copy-btn" onclick="copyPrompt(this, 'ps1')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy template
+        </button>
+      </div>
+    </div>
+    <div class="prompt-body">
+      <div class="fillin-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Replace every <strong>[bracket]</strong> with your own startup details before copying.
+      </div>
+      <pre class="prompt-text" id="ps1">I am a founder. I have noticed a problem: <span class="placeholder">[describe the problem in 1–2 sentences]</span>.
+
+My idea to solve it: <span class="placeholder">[describe your product idea in 1 sentence]</span>.
+
+Write a short email (under 120 words) to my Business Analyst asking them to build a business case.
+
+Include: the problem, my product idea, 3 constraints I care about, and a 5-day deadline.
+
+Sign off as <span class="placeholder">[your name]</span>, Founder.</pre>
+    </div>
+    <button class="accordion-toggle" onclick="toggleAccordion(this)">
+      <span class="toggle-left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        See example (TapLocal)
+        <span class="example-badge">Example</span>
+      </span>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-content">
+      <div class="out-label">Example prompt — TapLocal</div>
+      <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
+        <button class="copy-btn" onclick="copyPrompt(this, 'ps1e')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy example
+        </button>
+      </div>
+      <pre class="prompt-text" id="ps1e">I am a founder. I have noticed that small food vendors at markets have no easy way to take card payments — they lose sales every time a customer doesn't carry cash.
+
+My idea: a mobile app that lets vendors accept tap-to-pay in under 30 seconds, no hardware required.
+
+Write a short email to my Business Analyst asking them to build a business case.
+
+Include: the problem, my product idea, and these 3 constraints: works offline, under $5/month for the vendor, no technical setup required. Set a 5-day deadline.
+
+Sign off as Priya Sharma, Founder — TapLocal.</pre>
+    </div>
+  </div>
+
+  <div class="flow-connector">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    paste the email output into the next prompt
+  </div>
+
+  <!-- ——— STEP 2 ——— -->
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <div class="prompt-meta">
+        <div class="step-badge">2</div>
+        <div class="prompt-title">Business Case</div>
+        <span class="role-pill role-ba">Business Analyst</span>
+        <span class="time-pill">15 min</span>
+      </div>
+      <div class="header-actions">
+        <button class="copy-btn" onclick="copyPrompt(this, 'ps2')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy template
+        </button>
+      </div>
+    </div>
+    <div class="prompt-body">
+      <div class="chain-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Paste the email Claude wrote in Step 1 where indicated below.
+      </div>
+      <pre class="prompt-text" id="ps2">You are a Business Analyst. You have received this email from your founder:
+
+<span class="placeholder">[paste the email here]</span>
+
+Draft a one-page business case. Structure it as:
+- Problem statement
+- Proposed solution
+- 3 key benefits
+- What's in scope / out of scope
+- Effort estimate (S / M / L)
+- Primary risk</pre>
+    </div>
+    <button class="accordion-toggle" onclick="toggleAccordion(this)">
+      <span class="toggle-left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        See example (TapLocal)
+        <span class="example-badge">Example</span>
+      </span>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-content">
+      <div class="out-label">Example prompt — TapLocal</div>
+      <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
+        <button class="copy-btn" onclick="copyPrompt(this, 'ps2e')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy example
+        </button>
+      </div>
+      <pre class="prompt-text" id="ps2e">You are a Business Analyst. You have received this email from your founder:
+
+"Priya here — small market vendors are losing sales because they can't take card. I want to build TapLocal, a tap-to-pay mobile app requiring no hardware. Can you put together a business case? Constraints: offline-first, under $5/month, zero technical setup. Need it in 5 days. — Priya Sharma, Founder"
+
+Draft a one-page business case using the structure above:
+- Problem statement
+- Proposed solution
+- 3 key benefits
+- What's in scope / out of scope
+- Effort estimate (S / M / L)
+- Primary risk</pre>
+    </div>
+  </div>
+
+  <div class="flow-connector">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    paste the business case output into the next prompt
+  </div>
+
+  <!-- ——— STEP 3 ——— -->
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <div class="prompt-meta">
+        <div class="step-badge">3</div>
+        <div class="prompt-title">User Stories</div>
+        <span class="role-pill role-ux">UX Designer</span>
+        <span class="time-pill">15 min</span>
+      </div>
+      <div class="header-actions">
+        <button class="copy-btn" onclick="copyPrompt(this, 'ps3')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy template
+        </button>
+      </div>
+    </div>
+    <div class="prompt-body">
+      <div class="chain-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Paste the full business case from Step 2 where indicated. Don't summarise it — Claude does better with the full text.
+      </div>
+      <pre class="prompt-text" id="ps3">You are a UX Designer. You have this business case:
+
+<span class="placeholder">[paste business case here]</span>
+
+Step 1: Search the web for real user complaints or reviews about this problem. Summarise what you find in 3 bullet points.
+
+Step 2: Using the business case AND your research, write 3 user stories in the format:
+"As a [user], I want to [action] so that [outcome]."
+
+Include 2 testable acceptance criteria per story. No vague words like 'easily' or 'quickly'.</pre>
+    </div>
+    <button class="accordion-toggle" onclick="toggleAccordion(this)">
+      <span class="toggle-left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        See example (TapLocal)
+        <span class="example-badge">Example</span>
+      </span>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-content">
+      <div class="out-label">Example prompt — TapLocal</div>
+      <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
+        <button class="copy-btn" onclick="copyPrompt(this, 'ps3e')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy example
+        </button>
+      </div>
+      <pre class="prompt-text" id="ps3e">You are a UX Designer. You have this business case for TapLocal — a tap-to-pay app for market vendors who currently lose sales because they can't accept card payments.
+
+[paste business case here]
+
+Step 1: Search the web for complaints from small market vendors about taking payments. Summarise 3 real findings from reviews, forums, or news articles.
+
+Step 2: Using the business case AND your research, write 3 user stories for a market vendor using TapLocal for the first time.
+
+Format: "As a [user], I want to [action] so that [outcome]."
+
+Include 2 acceptance criteria per story — specific and testable, no vague words like 'easily' or 'quickly'.</pre>
+    </div>
+  </div>
+
+  <div class="flow-connector">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    paste the business case + user stories into the next prompt
+  </div>
+
+  <!-- ——— STEP 4 ——— -->
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <div class="prompt-meta">
+        <div class="step-badge">4</div>
+        <div class="prompt-title">Product Requirements Document</div>
+        <span class="role-pill role-ba">Business Analyst</span>
+        <span class="time-pill">15 min</span>
+      </div>
+      <div class="header-actions">
+        <button class="copy-btn" onclick="copyPrompt(this, 'ps4')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy template
+        </button>
+      </div>
+    </div>
+    <div class="prompt-body">
+      <div class="chain-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Paste the full business case and user stories from Steps 2 and 3.
+      </div>
+      <pre class="prompt-text" id="ps4">You are a Business Analyst.
+
+Using the business case and user stories below, write a short PRD.
+
+<span class="placeholder">[paste business case and user stories here]</span>
+
+Include:
+- What the product does (2 sentences)
+- Who it's for
+- Functional requirements (numbered list)
+- Non-functional requirements (performance, accessibility, connectivity)
+- What's out of scope
+- One open question for the team
+
+Write it so a developer can build from it without a meeting.</pre>
+    </div>
+    <button class="accordion-toggle" onclick="toggleAccordion(this)">
+      <span class="toggle-left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        See example (TapLocal)
+        <span class="example-badge">Example</span>
+      </span>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-content">
+      <div class="out-label">Example prompt — TapLocal</div>
+      <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
+        <button class="copy-btn" onclick="copyPrompt(this, 'ps4e')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy example
+        </button>
+      </div>
+      <pre class="prompt-text" id="ps4e">You are a Business Analyst.
+
+Using the TapLocal business case and user stories below, write a short PRD for a tap-to-pay mobile app for market vendors.
+
+[paste business case and user stories here]
+
+Include:
+- What the product does (2 sentences)
+- Who it's for (primary user: market vendor, not the customer paying)
+- Functional requirements: payment flow, receipt generation, refund process
+- Non-functional requirements: offline-first, transaction completes in under 3 seconds
+- Out of scope: inventory management, loyalty programme, multi-currency
+- One open question: which payment gateway should we integrate with?
+
+Write it so a developer can build from it without a meeting.</pre>
+    </div>
+  </div>
+
+  <div class="flow-connector">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    paste the PRD into the final prompt
+  </div>
+
+  <!-- ——— STEP 5 ——— -->
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <div class="prompt-meta">
+        <div class="step-badge">5</div>
+        <div class="prompt-title">Design Brief</div>
+        <span class="role-pill role-ux">UX Designer</span>
+        <span class="time-pill">10 min</span>
+      </div>
+      <div class="header-actions">
+        <button class="copy-btn" onclick="copyPrompt(this, 'ps5')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy template
+        </button>
+      </div>
+    </div>
+    <div class="prompt-body">
+      <div class="chain-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Paste the full PRD from Step 4. The inspiration brand is yours to choose — see tips below.
+      </div>
+      <pre class="prompt-text" id="ps5">You are a UX Designer. You have this PRD:
+
+<span class="placeholder">[paste PRD here]</span>
+
+I want the design to feel like <span class="placeholder">[name a product or brand you admire — e.g. Stripe, Duolingo, Apple Pay, Airbnb]</span>.
+
+Step 1: Search the web for that product's visual style. Extract:
+- Primary colours (with hex codes if possible)
+- Font style (e.g. clean sans-serif, humanist, geometric)
+- Button style
+- 1 core design principle that defines how it feels
+
+Step 2: Using the PRD and that design system, write a design brief covering:
+- What the product does (1 sentence)
+- Who uses it and in what emotional state
+- 3 design principles derived from your inspiration brand
+- Component list (key screens and UI elements needed)
+- Exact copy for the primary CTA button</pre>
+    </div>
+    <button class="accordion-toggle" onclick="toggleAccordion(this)">
+      <span class="toggle-left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        See example (TapLocal)
+        <span class="example-badge">Example</span>
+      </span>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-content">
+      <div class="out-label">Example prompt — TapLocal</div>
+      <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
+        <button class="copy-btn" onclick="copyPrompt(this, 'ps5e')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy example
+        </button>
+      </div>
+      <pre class="prompt-text" id="ps5e">You are a UX Designer. You have the TapLocal PRD for a tap-to-pay mobile app for market vendors.
+
+[paste PRD here]
+
+I want TapLocal to feel like Square — clean, confident, and built for people who aren't tech-savvy.
+
+Step 1: Search the web for Square's visual design. Extract:
+- Primary colours (with hex codes)
+- Font style
+- Button style
+- 1 core design principle that defines how Square feels to use
+
+Step 2: Using the TapLocal PRD and Square's design system as your foundation, write a design brief covering:
+- What TapLocal does (1 sentence)
+- Who uses it and in what emotional state (a vendor at a busy market stall)
+- 3 design principles derived from Square's approach
+- Component list: payment screen, receipt view, error state, settings
+- Exact copy for the primary CTA button on the payment screen</pre>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="sdlc-tips">
+    <h3 class="sdlc-tips-title">Tips for participants</h3>
+    <div class="sdlc-tips-grid">
+      <div class="sdlc-tip">
+        <div class="sdlc-tip-icon">💡</div>
+        <div><strong>Use your own idea</strong> — The prompts work for any product. Swap in your problem, your constraints, and your inspiration brand. TapLocal is just the worked example.</div>
+      </div>
+      <div class="sdlc-tip">
+        <div class="sdlc-tip-icon">🔗</div>
+        <div><strong>Each step feeds the next</strong> — Copy the <em>full</em> output from Claude and paste it into the next prompt. Don't summarise it — Claude does better with the complete text.</div>
+      </div>
+      <div class="sdlc-tip">
+        <div class="sdlc-tip-icon">🎨</div>
+        <div><strong>Inspiration brand ideas for Step 5</strong> — Stripe (developer-first, precise), Duolingo (playful, high-contrast), Notion (minimal, flexible), Monzo (bold, friendly), Headspace (calm, warm), Figma (functional, creative).</div>
+      </div>
+      <div class="sdlc-tip">
+        <div class="sdlc-tip-icon">🛠</div>
+        <div><strong>If Claude goes off track</strong> — Add: <em>"Keep it concise and structured. One page only."</em></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /panel-sdlc -->
+
+</main>
+
+<footer>
+  RMIT AI Workshop · June 2026 · All prompts ready to copy and paste into Claude
+</footer>
+
+
+<script src="js/app.js"></script>
+</body>
+</html>
