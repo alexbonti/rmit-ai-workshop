@@ -861,8 +861,8 @@ SUCCESS CRITERIA
         <div class="fun-card-meta">
           <div class="fun-icon fun-icon-img">🎨</div>
           <div>
-            <div class="fun-card-title">Generate Your nbn® Team Avatar</div>
-            <div class="fun-card-desc">Create a personalised beach-style illustrated avatar</div>
+            <div class="fun-card-title">Generate Your Team Avatar</div>
+            <div class="fun-card-desc">Claude draws your personalised beach-style avatar as SVG code</div>
           </div>
         </div>
         <button class="copy-btn" onclick="copyPrompt(this, 'pfun1')">
@@ -873,54 +873,37 @@ SUCCESS CRITERIA
       <div class="fun-card-body">
         <div class="fillin-hint">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          Fill in your personal details in the top section before copying. Upload a photo of yourself alongside the prompt for best results.
+          Fill in your details below. Either upload a photo of yourself alongside the prompt, or just describe your favourite animal — Claude will draw the avatar directly as SVG code.
         </div>
-        <pre class="prompt-text" id="pfun1">Fill in your details below, then send this whole prompt to Claude with a photo of yourself:
+        <pre class="prompt-text" id="pfun1">Fill in your details below. Then either attach a photo of yourself, or just use the animal option — Claude will draw the avatar directly as SVG.
 
 {about me}:
 - Name: <span class="placeholder">[YOUR NAME]</span>
-- Role at NBN: <span class="placeholder">[YOUR ROLE]</span>
+- Role: <span class="placeholder">[YOUR ROLE]</span>
 - 1–2 hobbies: <span class="placeholder">[E.G. SURFING, COOKING]</span>
-- One thing colleagues don't know about me: <span class="placeholder">[YOUR SECRET]</span>
+- Photo or favourite animal: <span class="placeholder">[attach a photo] OR [describe your favourite animal — e.g. "a golden retriever"]</span>
 
 ---
 
-Situation
-You are creating illustrated team avatars for NBN's AI bootcamp team page that authentically represent individual team members through their hobbies and personal interests while maintaining alignment with NBN's playful, beach-inspired visual identity.
+You are creating an illustrated team avatar. Do not use any external image generation tools or services. Generate the avatar yourself as a complete, self-contained SVG file that I can copy and use directly.
 
-Task
-Generate a circular illustrated avatar of the person shown in the attached photo. The avatar must incorporate visual elements derived from the hobbies listed above to authentically represent their personality and interests. The final composition must be contained within a circular frame and use NBN's signature blue (#1b6cff, #5690fd, #adc7fa) and light grey/white (#ffffff, #e8e8e8) color palette.
+The avatar must:
+- Be a square SVG (viewBox="0 0 400 400")
+- Show either a stylised version of the person in the attached photo, OR an illustrated version of the favourite animal described above — your choice based on what's provided
+- Incorporate visual props related to the hobbies listed
 
-Objective
-Create warm, playful, and relaxed avatar illustrations with a summery, beach-inspired aesthetic that feels personal and approachable rather than corporate, incorporating NBN's signature blue and white/light grey brand colors throughout the composition.
+Visual style:
+- Flat, graphic illustration — not realistic or photographic
+- Beach/summer aesthetic: waves, sand, floaties, sunshine
+- Rounded friendly shapes, simple facial features
+- Colour palette — Primary: #1b6cff, #5690fd, #adc7fa and white/light grey (#ffffff, #e8e8e8) · Accent: Coral #FF7B9C, Aqua #5DD9C1, Peach #FFB88C
+- Yellow/sand as dominant background, blue as accent
+- 2–4 main visual elements, uncluttered
 
-Brand Colors:
-Primary: signature blue (#1b6cff, #5690fd, #adc7fa) and light grey/white (#ffffff, #e8e8e8)
-Accent: Coral/Pink (#FF7B9C), Turquoise/Aqua (#5DD9C1), Peach (#FFB88C)
-
-Visual Approach:
-- Flat, graphic illustration style with smooth gradients and soft shadows
-- Beach/summer aesthetic with floaties, inflatables, waves, sand, beach umbrellas
-- Rounded, friendly shapes and organic curves
-- Playful props that feel vacation-inspired (inflatable rings, beach balls, surfboards, inner tubes)
-- Simple, clean compositions with plenty of breathing room
-- The person should be relaxed, casual, engaged naturally with their hobby
-
-Style Guidelines:
-- Illustration should be flat and graphic, not realistic or photographic
-- Use yellow and purple liberally: in water, sand, inflatables, clothing, accessories, shadows
-- Incorporate beach/water elements even if the hobby isn't water-related
-- Include whimsical floating elements: starfish, shells, small sparkles, gentle waves
-- Soft gradients within shapes (yellow to peach, purple to lavender)
-- Keep facial features simple and friendly
-
-Composition Requirements:
-- Final output must work within a circular frame
-- Center the subject with hobby-relevant props
-- Use yellow as the dominant background color (sand, sunlight, floaties)
-- Add purple as water, shadows, or accent elements
-- Keep composition uncluttered with 2–4 main visual elements maximum
-- Ensure the subject's head/upper body is clearly visible and well-framed</pre>
+Output format:
+- Return ONLY the raw SVG code, starting with &lt;svg and ending with &lt;/svg&gt;
+- No markdown, no explanation, no code fences — just the SVG
+- The SVG must render correctly when saved as a .svg file and opened in a browser</pre>
       </div>
     </div>
 
