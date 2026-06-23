@@ -232,7 +232,7 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 24px 60px; }
   word-break: break-word;
   user-select: all;
 }
-.placeholder { color: var(--blue); font-weight: 600; }
+.placeholder { color: #1b6cff; font-weight: 600; }
 
 /* ACCORDION */
 .accordion-toggle {
