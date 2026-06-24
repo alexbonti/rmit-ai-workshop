@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Telco X — Day 2 Build Challenge</title>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  /* Page-specific overrides */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    margin-bottom: 20px;
+  }
+  .back-link:hover { color: white; }
+  .back-link svg { width: 16px; height: 16px; }
+
+  .hero-sub { font-size: 13px; opacity: 0.7; margin-top: 6px; }
+
+  .repo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: white;
+    color: var(--blue);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .repo-btn:hover { opacity: 0.9; }
+  .repo-btn svg { width: 18px; height: 18px; }
+
+  /* Section cards */
+  .section-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .section-card-header {
+    padding: 18px 24px 14px;
+    border-bottom: 1px solid var(--border);
+    background: var(--grey-light);
+  }
+  .section-card-header h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+  .section-card-header p {
+    font-size: 13px;
+    color: var(--grey-mid);
+  }
+  .section-card-body { padding: 20px 24px; }
+
+  /* Three pages */
+  .pages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .page-tile {
+    border: 1px solid var(--output-border);
+    border-radius: 8px;
+    padding: 14px;
+    background: var(--output-bg);
+  }
+  .page-tile-num {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--blue);
+    margin-bottom: 4px;
+  }
+  .page-tile-title { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .page-tile-desc { font-size: 12.5px; color: #555; line-height: 1.5; }
+  .page-tile-built { font-size: 11px; font-weight: 600; color: var(--success); margin-top: 6px; }
+  .page-tile-todo  { font-size: 11px; font-weight: 600; color: var(--blue); margin-top: 6px; }
+
+  /* Rules list */
+  .rules-list { list-style: none; }
+  .rules-list li {
+    display: flex;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.65;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--grey-light);
+    color: var(--grey-dark);
+  }
+  .rules-list li:last-child { border-bottom: none; }
+  .rule-icon { flex-shrink: 0; font-size: 15px; margin-top: 1px; }
+
+  /* Done checklist */
+  .done-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .done-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--grey-light);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--grey-dark);
+  }
+  .done-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Tool files table */
+  .tool-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .tool-table tr { border-bottom: 1px solid var(--grey-light); }
+  .tool-table tr:last-child { border-bottom: none; }
+  .tool-table td { padding: 9px 8px; vertical-align: top; line-height: 1.5; }
+  .tool-num {
+    background: var(--blue);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+  .tool-name { font-weight: 700; color: var(--navy); }
+  .tool-desc { color: #555; }
+
+  /* Roles */
+  .roles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .role-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .role-card-title { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .role-card-desc { font-size: 12.5px; color: #555; line-height: 1.5; }
+
+  /* Sprint phases */
+  .phases-list { list-style: none; }
+  .phase-item {
+    display: flex;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--grey-light);
+    font-size: 13.5px;
+  }
+  .phase-item:last-child { border-bottom: none; }
+  .phase-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .phase-title { font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+  .phase-desc { color: #555; line-height: 1.55; }
+
+  /* Starter prompts */
+  .prompt-role-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: var(--grey-light);
+    border-bottom: 1px solid var(--border);
+    gap: 12px;
+  }
+  .prompt-role-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--navy);
+  }
+  .prompt-role-body { padding: 16px; }
+  .prompt-role-body pre {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--grey-dark);
+    background: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 14px 16px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    user-select: all;
+    margin: 0;
+  }
+  .prompt-role-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  /* Three tier */
+  .tier-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--grey-light);
+    font-size: 13.5px;
+  }
+  .tier-row:last-child { border-bottom: none; }
+  .tier-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .tier-dot.red    { background: #E53E3E; }
+  .tier-dot.amber  { background: #D69E2E; }
+  .tier-dot.green  { background: #38A169; }
+
+  /* Quick map */
+  .qm-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 18px 24px;
+    background: #1A1A1A;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .qm-toggle:hover { background: #2a2a2a; }
+  .qm-toggle .qm-left { display: flex; align-items: center; gap: 10px; }
+  .qm-toggle .qm-sub { font-size: 12px; font-weight: 400; opacity: 0.6; margin-top: 2px; }
+  .qm-chevron { width: 18px; height: 18px; flex-shrink: 0; color: white; transition: transform 0.25s; }
+  .qm-toggle.open .qm-chevron { transform: rotate(180deg); }
+
+  .qm-content {
+    display: none;
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    overflow: hidden;
+  }
+  .qm-content.open { display: block; }
+
+  .qm-phase {
+    border-left: 4px solid var(--border);
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--grey-light);
+  }
+  .qm-phase:last-of-type { border-bottom: none; }
+  .qm-phase-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .qm-time { font-size: 12px; font-weight: 700; color: var(--grey-mid); }
+  .qm-phase-title { font-size: 14px; font-weight: 700; color: var(--navy); }
+  .qm-who { font-size: 11px; color: var(--grey-mid); font-style: italic; }
+  .qm-tasks { list-style: none; margin-bottom: 10px; }
+  .qm-tasks li {
+    font-size: 13px;
+    color: var(--grey-dark);
+    line-height: 1.6;
+    padding: 2px 0;
+    padding-left: 14px;
+    position: relative;
+  }
+  .qm-tasks li::before { content: '→'; position: absolute; left: 0; color: var(--blue); font-size: 11px; top: 4px; }
+  .qm-checks { display: flex; flex-wrap: wrap; gap: 6px; }
+  .qm-check {
+    font-size: 11px;
+    font-weight: 600;
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 3px 9px;
+    border-radius: 10px;
+  }
+
+  .qm-stuck {
+    padding: 20px 24px;
+    background: #fffde7;
+    border-top: 1px solid #ffe082;
+  }
+  .qm-stuck h3 { font-size: 13px; font-weight: 700; color: #5d4037; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .qm-blocker { margin-bottom: 10px; }
+  .qm-blocker:last-child { margin-bottom: 0; }
+  .qm-blocker-q { font-size: 13px; font-weight: 700; color: var(--grey-dark); margin-bottom: 3px; }
+  .qm-blocker-a { font-size: 13px; color: #555; line-height: 1.55; }
+
+  @media (max-width: 600px) {
+    .pages-grid { grid-template-columns: 1fr; }
+    .done-grid { grid-template-columns: 1fr; }
+    .roles-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/RMIT_University_Logo.svg" alt="RMIT University" class="rmit-logo">
+  <div class="header-divider"></div>
+  <div>
+    <div class="header-title">Day 2 Build Challenge</div>
+    <div class="header-sub">Telco X — Service Availability Prototype</div>
+  </div>
+</header>
+
+<div class="hero">
+  <a href="index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to Workshop
+  </a>
+  <h1>Telco X Build Sprint</h1>
+  <p>A responsive three-page web app for a fictional carrier — built with Claude, owned by your team. Plan, code, review, and test. Every merge is a human decision.</p>
+  <a href="https://github.com/alexbonti/telco-x-starter" target="_blank" class="repo-btn">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+    Fork the starter on GitHub
+  </a>
+</div>
+
+<main>
+
+  <!-- THE CHALLENGE -->
+  <div class="section-card">
+    <div class="section-card-header">
+      <h2>The Challenge</h2>
+      <p>Three pages. Seven tool files. Ten acceptance criteria.</p>
+    </div>
+    <div class="section-card-body">
+      <div class="pages-grid">
+        <div class="page-tile">
+          <div class="page-tile-num">Page 1</div>
+          <div class="page-tile-title">Home &amp; Search</div>
+          <div class="page-tile-desc">Search or select from ten addresses. Unknown address returns a helpful error.</div>
+          <div class="page-tile-built">✓ Already built</div>
+        </div>
+        <div class="page-tile">
+          <div class="page-tile-num">Page 2</div>
+          <div class="page-tile-title">Address Result</div>
+          <div class="page-tile-desc">Address + map pin, then branch: active subscriber vs product choices.</div>
+          <div class="page-tile-todo">→ Build it</div>
+        </div>
+        <div class="page-tile">
+          <div class="page-tile-num">Page 3</div>
+          <div class="page-tile-title">Details or Providers</div>
+          <div class="page-tile-desc">Subscriber detail (active) or provider list for a chosen product.</div>
+          <div class="page-tile-todo">→ Build it</div>
+        </div>
+      </div>
+
+      <ul class="rules-list">
+        <li><span class="rule-icon">🚫</span><div><strong>De-identified sandbox.</strong> Never use real carrier names, logos, or process terms. Generic tech terms (FTTP, HFC, FTTN, FTTC, Fixed Wireless, speed tier) are fine.</div></li>
+        <li><span class="rule-icon">🚫</span><div><strong>No live integration.</strong> No login, accounts, payments, or internet calls. Mock data only.</div></li>
+        <li><span class="rule-icon">🔒</span><div><strong>Data is read-only.</strong> Never edit files in <code>/data</code>. Access everything through <code>lib/data.js</code> getters only.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BUSINESS RULES -->
+  <div class="section-card">
+    <div class="section-card-header">
+      <h2>Business Rules</h2>
+      <p>The spec. Follow them exactly — these constraints are the point, not an obstacle.</p>
+    </div>
+    <div class="section-card-body">
+      <ul class="rules-list">
+        <li><span class="rule-icon">📍</span><div><strong>Status drives everything.</strong> <code>active</code> = subscriber. <code>previous</code> / <code>never</code> = non-subscriber. Never show network or service records for a non-active address.</div></li>
+        <li><span class="rule-icon">📡</span><div><strong>Technology drives products.</strong> Use Tool 2 technology to select the valid product set from Tool 3. Map pin uses Tool 1 coordinates.</div></li>
+        <li><span class="rule-icon">⬆️</span><div><strong>Eligibility drives the upgrade card.</strong> No upgrade card when <code>upgrade_eligible</code> is <code>false</code>. Provider count and names must match Tool 7 exactly.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DEFINITION OF DONE -->
+  <div class="section-card">
+    <div class="section-card-header">
+      <h2>Definition of Done</h2>
+      <p>Your build is complete when every one of these is true. This is exactly what you'll be assessed against.</p>
+    </div>
+    <div class="section-card-body">
+      <div class="done-grid">
+        <div class="done-item"><div class="done-num">1</div>All ten addresses can be searched or selected</div>
+        <div class="done-item"><div class="done-num">2</div>Unknown address shows a helpful error</div>
+        <div class="done-item"><div class="done-num">3</div>Result page shows the right address + map pin</div>
+        <div class="done-item"><div class="done-num">4</div>Active shows subscriber, network &amp; service</div>
+        <div class="done-item"><div class="done-num">5</div>Non-active shows valid product choices</div>
+        <div class="done-item"><div class="done-num">6</div>Detail and provider views open correctly</div>
+        <div class="done-item"><div class="done-num">7</div>Provider names and count match the data</div>
+        <div class="done-item"><div class="done-num">8</div>Back navigation keeps the selected address</div>
+        <div class="done-item"><div class="done-num">9</div>Works on laptop and mobile, clearly labelled</div>
+        <div class="done-item"><div class="done-num">10</div>Demo one active + one non-active journey</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEVEN TOOL FILES -->
+  <div class="section-card">
+    <div class="section-card-header">
+      <h2>The Seven Tool Files</h2>
+      <p>Read-only mock data in <code>/data</code>. Always access through <code>lib/data.js</code> — never read or edit the JSON directly.</p>
+    </div>
+    <div class="section-card-body">
+      <table class="tool-table">
+        <tbody>
+          <tr>
+            <td><span class="tool-num">Tool 1</span></td>
+            <td><div class="tool-name">Locations</div><div class="tool-desc">Address, coordinates, connection status for all ten locations</div></td>
+          </tr>
+          <tr>
+            <td><span class="tool-num">Tool 2</span></td>
+            <td><div class="tool-name">Technology</div><div class="tool-desc">Access technology per location (FTTP, HFC, FTTN, FTTC, Fixed Wireless)</div></td>
+          </tr>
+          <tr>
+            <td><span class="tool-num">Tool 3</span></td>
+            <td><div class="tool-name">Products</div><div class="tool-desc">Speed-tier catalogue by technology</div></td>
+          </tr>
+          <tr>
+            <td><span class="tool-num">Tool 4</span></td>
+            <td><div class="tool-name">Subscriber</div><div class="tool-desc">Current product, connection date, upgrade eligibility flag — active only</div></td>
+          </tr>
+          <tr>
+            <td><span class="tool-num">Tool 5</span></td>
+            <td><div class="tool-name">Network</div><div class="tool-desc">Health (RAG), sync speeds, last outage — active only</div></td>
+          </tr>
+          <tr>
+            <td><span class="tool-num">Tool 6</span></td>
+            <td><div class="tool-name">Service</div><div class="tool-desc">Open tickets, appointments, health (RAG) — active only</div></td>
+          </tr>
+          <tr>
+            <td><span class="tool-num">Tool 7</span></td>
+            <td><div class="tool-name">Providers</div><div class="tool-desc">Retail providers by technology</div></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="notice-box notice-warning" style="margin-top:14px;margin-bottom:0">
+        <strong>API contract:</strong> Worked endpoints: <code>GET /api/locations</code>, <code>GET /api/locations/:id</code>. All others return 501 with hints until you implement them: <code>…/:id/technology</code>, <code>/api/technology/:tech/products</code>, <code>…/:id/subscriber</code>, <code>…/:id/network</code>, <code>…/:id/service</code>, <code>/api/technology/:tech/providers</code>.
+      </div>
+    </div>
+  </div>
+
+  <!-- TEAM & ROLES -->
+  <div class="section-card">
+    <div class="section-card-header">
+      <h2>Your Team &amp; Roles</h2>
+      <p>Five delivery roles — and a new one.</p>
+    </div>
+    <div class="section-card-body">
+      <div class="roles-grid">
+        <div class="role-card">
+          <div class="role-pill role-gm" style="margin-bottom:8px">Product Manager</div>
+          <div class="role-card-desc">Scope, priorities, and the demo.</div>
+        </div>
+        <div class="role-card">
+          <div class="role-pill role-ba" style="margin-bottom:8px">Business Analyst</div>
+          <div class="role-card-desc">Business rules and acceptance criteria.</div>
+        </div>
+        <div class="role-card">
+          <div class="role-pill role-ux" style="margin-bottom:8px">UX Designer</div>
+          <div class="role-card-desc">Design system, prototype, and accessibility.</div>
+        </div>
+        <div class="role-card">
+          <div class="role-pill role-dev" style="margin-bottom:8px">Engineer</div>
+          <div class="role-card-desc">The working app.</div>
+        </div>
+        <div class="role-card">
+          <div class="role-pill" style="background:#e0f2f1;color:#00695c;margin-bottom:8px">Tester ★ new</div>
+          <div class="role-card-desc">Test coverage and defects.</div>
+        </div>
+        <div class="role-card">
+          <div class="role-pill" style="background:#f3f4f6;color:#374151;margin-bottom:8px">Project Manager</div>
+          <div class="role-card-desc">Your facilitator — removes blockers, calls checkpoints.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px">
+        <div class="out-section-title navy" style="margin-bottom:8px">Three-Tier Framework</div>
+        <div class="tier-row">
+          <div class="tier-dot red"></div>
+          <div><strong>🔴 Human Decision</strong> — You decide. Approvals, trade-offs, what 'done' means, the merge.</div>
+        </div>
+        <div class="tier-row">
+          <div class="tier-dot amber"></div>
+          <div><strong>🟡 AI Assist</strong> — Claude drafts; you review and approve before it counts.</div>
+        </div>
+        <div class="tier-row">
+          <div class="tier-dot green"></div>
+          <div><strong>🟢 AI Automate</strong> — Claude runs it; you monitor. Scaffolding, boilerplate, tests.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPRINT PHASES -->
+  <div class="section-card">
+    <div class="section-card-header">
+      <h2>How the Sprint Runs</h2>
+      <p>Six phases. Keep a working slice alive at every step — a small thing that runs beats a big thing that doesn't.</p>
+    </div>
+    <div class="section-card-body">
+      <ul class="phases-list">
+        <li class="phase-item">
+          <div class="phase-num">1</div>
+          <div><div class="phase-title">Read &amp; Align</div><div class="phase-desc">Agree the stack, assign roles, pick demo addresses.</div></div>
+        </li>
+        <li class="phase-item">
+          <div class="phase-num">2</div>
+          <div><div class="phase-title">Plan</div><div class="phase-desc">Sketch pages, map rules, scaffold routes, draft tests.</div></div>
+        </li>
+        <li class="phase-item">
+          <div class="phase-num">3</div>
+          <div><div class="phase-title">Build Core</div><div class="phase-desc">Pages 1–2; connect Tools 1–6; status branch. Implement the six TODO endpoints in order: technology → products → subscriber (isActive guard!) → network → service → providers.</div></div>
+        </li>
+        <li class="phase-item">
+          <div class="phase-num">4</div>
+          <div><div class="phase-title">Build Detail</div><div class="phase-desc">Page 3 both modes (<code>?mode=details</code> and <code>?mode=providers</code>). Connect Tool 7. Wire Back button to <code>history.back()</code>.</div></div>
+        </li>
+        <li class="phase-item">
+          <div class="phase-num">5</div>
+          <div><div class="phase-title">Test</div><div class="phase-desc">Activate skipped tests in <code>tests/api.test.js</code>. Run path matrix in the browser. All 31 tests must pass before polish.</div></div>
+        </li>
+        <li class="phase-item">
+          <div class="phase-num">6</div>
+          <div><div class="phase-title">Polish &amp; Rehearse</div><div class="phase-desc">Fix blocker defects only. Rehearse two journeys: Carlton (active) → Williamstown (never). Name your two 🔴 human moments.</div></div>
+        </li>
+      </ul>
+
+      <div class="notice-box notice-warning" style="margin-top:4px;margin-bottom:0">
+        <strong>GitHub arc:</strong> Issue → Branch → Explore → Plan → Build → Tests → PR → AI Review → <strong>🔴 Human Merge</strong>. Before coding any issue: read it, confirm acceptance criteria, create a feature branch, then build.
+      </div>
+    </div>
+  </div>
+
+  <!-- STARTER PROMPTS -->
+  <div class="section-card">
+    <div class="section-card-header">
+      <h2>Starter Prompts</h2>
+      <p>One per role. Use these to get moving — then adapt as needed.</p>
+    </div>
+
+    <div class="prompt-role-header">
+      <span class="prompt-role-label">Business Analyst</span>
+      <button class="copy-btn" onclick="copyBlock(this, 'sp-ba')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy
+      </button>
+    </div>
+    <div class="prompt-role-body">
+      <pre id="sp-ba">Map each acceptance criterion to the tool(s) and screen element that satisfies it. Flag any criterion the current data cannot satisfy.</pre>
+    </div>
+
+    <hr class="prompt-role-divider">
+
+    <div class="prompt-role-header">
+      <span class="prompt-role-label">Product Manager</span>
+      <button class="copy-btn" onclick="copyBlock(this, 'sp-pm')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy
+      </button>
+    </div>
+    <div class="prompt-role-body">
+      <pre id="sp-pm">Given the acceptance criteria, propose a build order that yields a demoable slice by the halfway point. Flag the single riskiest item.</pre>
+    </div>
+
+    <hr class="prompt-role-divider">
+
+    <div class="prompt-role-header">
+      <span class="prompt-role-label">Engineer — Claude Code</span>
+      <button class="copy-btn" onclick="copyBlock(this, 'sp-eng')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy
+      </button>
+    </div>
+    <div class="prompt-role-body">
+      <pre id="sp-eng">Implement GET /api/locations/:id/subscriber. Active locations only — guard non-active. Use lib/data.js. Add a test for active and non-active. Do not modify the data files.</pre>
+    </div>
+
+    <hr class="prompt-role-divider">
+
+    <div class="prompt-role-header">
+      <span class="prompt-role-label">UX Designer</span>
+      <button class="copy-btn" onclick="copyBlock(this, 'sp-ux')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy
+      </button>
+    </div>
+    <div class="prompt-role-body">
+      <pre id="sp-ux">Review this screen for accessibility: contrast, focus order, label clarity, and colour-only meaning. List fixes in priority order.</pre>
+    </div>
+
+    <hr class="prompt-role-divider">
+
+    <div class="prompt-role-header">
+      <span class="prompt-role-label">Tester</span>
+      <button class="copy-btn" onclick="copyBlock(this, 'sp-test')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy
+      </button>
+    </div>
+    <div class="prompt-role-body">
+      <pre id="sp-test">Generate a Jest + supertest suite covering the path matrix, including the negative rules (non-active hides records; upgrade card only when eligible). Use tests/api.test.js as the pattern.</pre>
+    </div>
+  </div>
+
+  <!-- BUILD SHOWCASE -->
+  <div class="section-card">
+    <div class="section-card-header">
+      <h2>Build Showcase</h2>
+      <p>Five minutes, the running app, no slides.</p>
+    </div>
+    <div class="section-card-body">
+      <ul class="rules-list">
+        <li><span class="rule-icon">✅</span><div><strong>One active journey</strong> — Browse for an address; show the subscriber detail.</div></li>
+        <li><span class="rule-icon">✅</span><div><strong>One non-active journey</strong> — An address that never connected; show product choices.</div></li>
+        <li><span class="rule-icon">🔴</span><div><strong>One human call</strong> — A place your judgment overruled or directed Claude.</div></li>
+      </ul>
+      <div class="notice-box notice-warning" style="margin-top:14px;margin-bottom:0">
+        <strong>Draw it out:</strong> Where did Claude save the most time? Where did you overrule it? What did the Tester catch that you'd have shipped? Where did the playbook not match reality?
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK MAP (collapsible) -->
+  <button class="qm-toggle" onclick="toggleQM(this)">
+    <div class="qm-left">
+      <div>
+        <div>⚡ Quick Map — Not sure what to do next?</div>
+        <div class="qm-sub">Find your phase, read the "Do this now" column, and keep moving</div>
+      </div>
+    </div>
+    <svg class="qm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+
+  <div class="qm-content" id="qm-content">
+
+    <div class="qm-phase" style="border-left-color:#4338CA">
+      <div class="qm-phase-header">
+        <span class="qm-time">09:00–09:15</span>
+        <span class="qm-phase-title">Read &amp; Align</span>
+        <span class="qm-who">Everyone</span>
+      </div>
+      <ul class="qm-tasks">
+        <li>Read the Challenge Brief and CLAUDE.md — do not skip this</li>
+        <li>Assign roles (PM, BA, UX, Engineer, Tester)</li>
+        <li>Agree your two demo addresses: Carlton (active) + Williamstown (never)</li>
+        <li>Decide the 404 vs 403 question for non-active subscriber requests</li>
+      </ul>
+      <div class="qm-checks">
+        <span class="qm-check">✓ Roles assigned</span>
+        <span class="qm-check">✓ Demo addresses chosen</span>
+        <span class="qm-check">✓ 404 rule agreed</span>
+      </div>
+    </div>
+
+    <div class="qm-phase" style="border-left-color:#0891B2">
+      <div class="qm-phase-header">
+        <span class="qm-time">09:15–09:35</span>
+        <span class="qm-phase-title">Plan</span>
+        <span class="qm-who">BA + PM lead</span>
+      </div>
+      <ul class="qm-tasks">
+        <li>PM: write a one-page brief for your first slice using Stage / Task / Rules</li>
+        <li>BA: write Given/When/Then ACs for each endpoint</li>
+        <li>UX: research and sketch the two screens in Claude Design</li>
+        <li>Engineer: enter Plan Mode (Shift+Tab) — map the six TODO endpoints before touching code</li>
+        <li>Tester: draft the path matrix on paper</li>
+      </ul>
+      <div class="qm-checks">
+        <span class="qm-check">✓ One-page brief</span>
+        <span class="qm-check">✓ ACs written &amp; signed off</span>
+        <span class="qm-check">✓ Route plan reviewed</span>
+      </div>
+    </div>
+
+    <div class="qm-phase" style="border-left-color:#1F9D57">
+      <div class="qm-phase-header">
+        <span class="qm-time">09:35–10:45</span>
+        <span class="qm-phase-title">Build Core</span>
+        <span class="qm-who">Engineer leads</span>
+      </div>
+      <ul class="qm-tasks">
+        <li>Implement the six TODO endpoints in server.js — use lib/data.js getters only</li>
+        <li>Order: technology → products → subscriber (isActive guard!) → network → service → providers</li>
+        <li>Run <code>npm test</code> after each endpoint — fix before moving on</li>
+        <li>Build Page 2 (result.js): fetch location, branch on connection_status, render both paths</li>
+        <li>UX: commit design/result.html and raise a design-handoff Issue</li>
+      </ul>
+      <div class="qm-checks">
+        <span class="qm-check">✓ All 6 endpoints return 200 (not 501)</span>
+        <span class="qm-check">✓ npm test green</span>
+        <span class="qm-check">✓ Page 2 renders both paths</span>
+      </div>
+    </div>
+
+    <div class="qm-phase" style="border-left-color:#C98A00">
+      <div class="qm-phase-header">
+        <span class="qm-time">10:45–11:15</span>
+        <span class="qm-phase-title">Build Detail</span>
+        <span class="qm-who">Engineer leads</span>
+      </div>
+      <ul class="qm-tasks">
+        <li>Build Page 3 (details.js) — two modes from <code>?mode=</code> URL param</li>
+        <li><code>details</code> mode: full subscriber view (Tools 4, 5, 6)</li>
+        <li><code>providers</code> mode: provider list from Tool 7 (<code>?tech=</code> param, use encodeURIComponent)</li>
+        <li>Wire the Back button to <code>history.back()</code> — do not hard-code a URL</li>
+        <li>UX: commit design/details.html and raise a design-handoff Issue</li>
+      </ul>
+      <div class="qm-checks">
+        <span class="qm-check">✓ Page 3 details mode works</span>
+        <span class="qm-check">✓ Page 3 providers mode works</span>
+        <span class="qm-check">✓ Back nav preserves address</span>
+      </div>
+    </div>
+
+    <div class="qm-phase" style="border-left-color:#D23F3F">
+      <div class="qm-phase-header">
+        <span class="qm-time">11:15–11:40</span>
+        <span class="qm-phase-title">Test</span>
+        <span class="qm-who">Tester leads</span>
+      </div>
+      <ul class="qm-tasks">
+        <li>Activate the skipped tests in tests/api.test.js (remove <code>.skip</code>)</li>
+        <li>Run <code>npm test</code> — all tests must pass before polish</li>
+        <li>Walk every row of the path matrix manually in the browser</li>
+        <li>Check: no subscriber data leaks for LOC-005 through LOC-010</li>
+        <li>Check: upgrade card hidden for LOC-001 and LOC-004</li>
+        <li>Check: Fixed Wireless providers shows exactly 2 names</li>
+        <li>Check: mobile layout at 375px width</li>
+      </ul>
+      <div class="qm-checks">
+        <span class="qm-check">✓ All 31 tests pass</span>
+        <span class="qm-check">✓ Defect list written</span>
+        <span class="qm-check">✓ Blockers fixed</span>
+      </div>
+    </div>
+
+    <div class="qm-phase" style="border-left-color:#7C3AED">
+      <div class="qm-phase-header">
+        <span class="qm-time">11:40–12:00</span>
+        <span class="qm-phase-title">Polish &amp; Demo</span>
+        <span class="qm-who">PM leads</span>
+      </div>
+      <ul class="qm-tasks">
+        <li>Fix blocker defects only — leave minor issues for the debrief</li>
+        <li>Rehearse the two-minute demo: Carlton (active) → Williamstown (never)</li>
+        <li>Name your two 🔴 human moments: the 404 decision, and the merge approval</li>
+        <li>PM: tell the story — what the method gave you, where judgment was yours</li>
+      </ul>
+      <div class="qm-checks">
+        <span class="qm-check">✓ Demo runs end-to-end</span>
+        <span class="qm-check">✓ Two human moments named</span>
+        <span class="qm-check">✓ Story ready</span>
+      </div>
+    </div>
+
+    <div class="qm-stuck">
+      <h3>Stuck? Use this.</h3>
+
+      <div class="qm-blocker">
+        <div class="qm-blocker-q">An endpoint returns 501</div>
+        <div class="qm-blocker-a">It's still a TODO. Open server.js, find the matching stub, and implement it using the lib/data.js getter named in the hint comment.</div>
+      </div>
+      <div class="qm-blocker">
+        <div class="qm-blocker-q">Page 2 shows nothing</div>
+        <div class="qm-blocker-a">Open the browser console. If you see a network error on /api/locations/:id, the ?id= param is missing. Check result.js reads <code>params.get('id')</code>.</div>
+      </div>
+      <div class="qm-blocker">
+        <div class="qm-blocker-q">Fixed Wireless shows 0 providers</div>
+        <div class="qm-blocker-a">You're using + encoding instead of %20. Change the fetch call to use <code>encodeURIComponent(tech)</code> — not a manual + replacement.</div>
+      </div>
+      <div class="qm-blocker">
+        <div class="qm-blocker-q">Subscriber data leaks for a non-active address</div>
+        <div class="qm-blocker-a">The isActive() guard is missing or in the wrong place. It must run before any call to getSubscriber / getNetwork / getService.</div>
+      </div>
+      <div class="qm-blocker">
+        <div class="qm-blocker-q">Upgrade card always shows (or never shows)</div>
+        <div class="qm-blocker-a">Check the condition: <code>subscriber.upgrade_eligible === true</code>. LOC-001 and LOC-004 are false; LOC-002 and LOC-003 are true.</div>
+      </div>
+      <div class="qm-blocker">
+        <div class="qm-blocker-q">Back button goes to Page 1</div>
+        <div class="qm-blocker-a">Replace <code>location.href</code> with <code>history.back()</code> in the back button's click handler.</div>
+      </div>
+      <div class="qm-blocker">
+        <div class="qm-blocker-q">No idea what to build next</div>
+        <div class="qm-blocker-a">Read the CLAUDE.md guardrails, then look at the six TODO stubs in server.js. They have hints. Pick the first 501 and implement it.</div>
+      </div>
+    </div>
+
+  </div><!-- /qm-content -->
+
+</main>
+
+<footer>
+  RMIT AI Workshop · Telco X Build Challenge · Day 2
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+  function toggleQM(btn) {
+    const content = document.getElementById('qm-content');
+    const isOpen = content.classList.contains('open');
+    content.classList.toggle('open', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+  }
+
+  function copyBlock(btn, id) {
+    const el = document.getElementById(id);
+    const text = el.innerText || el.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.innerHTML;
+      btn.classList.add('copied');
+      btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
+      setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = orig; }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
